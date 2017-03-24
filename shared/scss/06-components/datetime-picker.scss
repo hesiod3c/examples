@@ -1,0 +1,292 @@
+/*
+ * https://github.com/arqex/react-datetime
+ */
+
+/* ==========================================================================
+  Variables
+  ========================================================================== */
+
+/* Color
+   ========================================================================== */
+$border-color: #ccc;
+
+$rdtPicker-background-color: #fff;
+$rdtPicker-shadow-color: rgba(0, 0 , 0, 0.1);
+$rdtPicker-border-color: #f9f9f9;
+
+$rdtPicker-td-background-color: #eee;
+$rdtPicker-td-color: #999;
+
+$rdtPicker-rdtToday-border-bottom-color: #428bca;
+$rdtPicker-rdtToday-border-top-color: rgba(0, 0, 0, 0.2);
+
+$rdtPicker-rdtActive-background-color: #428bca;
+$rdtPicker-rdtActive-color: #fff;
+$rdtPicker-rdtActive-shadow-color: rgba(0, 0, 0, 0.25);
+
+$rdtPicker-rdtToday-before-border-color: #fff;
+
+$rdtPicker-th-border-color: #f9f9f9;
+
+$rdtPicker-thead-th-background-color-hover: #eee;
+
+
+$rdtPicker-tfoot-border-color: #f9f9f9;
+$rdtPicker-button-background-color-hover: #eee;
+
+$rdtPicker-rdtOld-color: #999;
+$rdtPicker-rdtDisabled-color: #999;
+
+/* ==========================================================================
+  Datetime picker component
+  ========================================================================== */
+.form-control {
+  border: 1px solid $border-color;
+  display: block;
+  height: 40px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+
+.rdt {
+  position: relative;
+}
+
+.rdtPicker {
+  background: $rdtPicker-background-color;
+  border: 1px solid $rdtPicker-border-color;
+  box-shadow: 0 1px 3px $rdtPicker-shadow-color;
+  display: none;
+  margin-top: 1px;
+  padding: 4px;
+  position: absolute;
+  width: 250px;
+  z-index: 99999;
+
+  .rdtTimeToggle {
+    text-align: center;
+
+    &:hover {
+      background: $rdtPicker-td-background-color;
+      cursor: pointer;
+    }
+  }
+
+  table {
+    margin: 0;
+    width: 100%;
+  }
+
+  td,
+  th {
+    height: 28px;
+    text-align: center;
+  }
+
+  td {
+    cursor: pointer;
+
+    .rdtOld,
+    .rdtNew {
+      color: $rdtPicker-td-color;
+    }
+
+    .rdtToday {
+      position: relative;
+
+      &:before {
+        border-bottom: 7px solid $rdtPicker-rdtToday-border-bottom-color;
+        border-left: 7px solid transparent;
+        border-top-color: $rdtPicker-rdtToday-border-top-color;
+        bottom: 4px;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 4px;
+      }
+    }
+
+    .rdtActive {
+      &,
+      &:hover {
+        background-color: $rdtPicker-rdtActive-background-color;
+        color: $rdtPicker-rdtActive-color;
+        text-shadow: 0 -1px 0 $rdtPicker-rdtActive-shadow-color;
+      }
+
+      &.rdtToday {
+        &:before { border-bottom-color: $rdtPicker-rdtToday-before-border-color; }
+      }
+    }
+
+    .rdtDisabled {
+      &,
+      &:hover {
+        background: none;
+        color: $rdtPicker-rdtDisabled-color;
+        cursor: not-allowed;
+      }
+    }
+
+    span {
+      .rdtOld { color: $rdtPicker-rdtOld-color; }
+
+      &.rdtDisabled {
+        &,
+        &:hover {
+          background: none;
+          color: $rdtPicker-rdtDisabled-color;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    &.rdtDay,
+    &.rdtHour,
+    &.rdtMinute,
+    &.rdtSecond {
+      &:hover {
+        background: $rdtPicker-td-background-color;
+        cursor: pointer;
+      }
+    }
+  }
+
+  th {
+    border-bottom: 1px solid $rdtPicker-th-border-color;
+
+    &.rdtSwitch { width: 100px; }
+
+    &.rdtNext,
+    &.rdtPrev {
+      font-size: 21px;
+      vertical-align: top;
+    }
+
+    &.rdtDisabled {
+      &,
+      &:hover {
+        background: none;
+        color: $rdtPicker-rdtDisabled-color;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .dow {
+    border-bottom: 0;
+    width: 14.2857%;
+  }
+
+
+  tr {
+    &:first-child {
+      th {
+        cursor: pointer;
+
+        &:hover { background: $rdtPicker-thead-th-background-color-hover; }
+      }
+    }
+  }
+
+  thead {
+    button {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  tfoot { border-top: 1px solid $rdtPicker-tfoot-border-color; }
+
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    &:hover { background-color: $rdtPicker-button-background-color-hover; }
+  }
+}
+
+.rdtOpen {
+  .rdtPicker {
+    display: block;
+  }
+}
+
+.rdtStatic {
+  .rdtPicker {
+    box-shadow: none;
+    position: static;
+  }
+}
+
+.rdtPrev,
+.rdtNext {
+  span {
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    display: block;
+    user-select: none;
+  }
+}
+
+$td-background-color-hover: #eee;
+
+td {
+  &.rdtMonth,
+  &.rdtYear {
+    cursor: pointer;
+    height: 50px;
+    width: 25%;
+
+    &:hover { background: $td-background-color-hover; }
+  }
+}
+
+.rdtCounters {
+  display: inline-block;
+
+  & > div { float: left; }
+}
+
+.rdtCounterSeparator { line-height: 100px; }
+
+$rdtBtn-background-color-hover: #eee;
+
+.rdtCounter {
+  height: 100px;
+  width: 40px;
+
+  .rdtBtn {
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    cursor: pointer;
+    display: block;
+    height: 40%;
+    line-height: 40px;
+    user-select: none;
+
+    &:hover { background: $rdtBtn-background-color-hover; }
+  }
+
+  .rdtCount {
+    font-size: 1.2em;
+    height: 20%;
+  }
+}
+
+.rdtMilli {
+  padding-left: 8px;
+  vertical-align: middle;
+  width: 48px;
+
+  input {
+    font-size: 1.2em;
+    margin-top: 37px;
+    width: 100%;
+  }
+}
+

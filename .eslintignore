@@ -1,0 +1,12 @@
+**/*.scss
+**/*.svg
+**/*.png
+**/*.jpeg
+**/*.jpg
+**/*.gif
+**/*.woff
+**/*.woff2
+**/*.eot
+**/*.ttf
+**/*.css
+**/*.css.map

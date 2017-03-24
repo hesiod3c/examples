@@ -1,0 +1,79 @@
+
+$actived-background: #e0f3ef;
+$svg-actived-color: #15947a;
+$error-color: #ed5565;
+
+/* ==========================================================================
+   ChoiceBox Component
+   ========================================================================== */
+.choiceBox,
+.choiceBox-title {
+  outline: none;
+}
+
+.choiceBox-description {
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.choiceBox-formControl {
+  margin-bottom: 10px;
+}
+
+.choiceBox-formGroup { margin: 0; }
+
+.choiceBox-formGroup-button {
+  float: right;
+}
+
+.choiceBox-list {
+  max-height: 250px;
+  overflow: auto;
+
+  [class*="label"],
+  [class*="form-control"] {
+    margin-top: 5px;
+  }
+}
+
+.choiceBox-itemWithButton {
+  position: relative;
+
+  .choiceBox-formControl {
+    padding-right: 52px;
+  }
+}
+
+.choiceBox-itemWithButton-button {
+  border-radius: 0;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 52px;
+}
+
+.choiceBox-tag {
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.actived {
+  background: $actived-background;
+
+  [class*="button"] {
+    background: $actived-background;
+    border-color: $actived-background;
+  }
+
+  path {
+    background: $svg-actived-color;
+  }
+}
+
+.errorMessage {
+  color: $error-color;
+  font-size: 12px;
+  font-weight: normal;
+}

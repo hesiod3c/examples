@@ -1,0 +1,19 @@
+@import "../../../node_modules/react-select/scss/default";
+
+.Select-control {
+  border-radius: 0;
+  height: 38px;
+}
+
+.Select-input { height: 37px; }
+
+.Select-multi-value-wrapper,
+.Select-placeholder {
+  line-height: 38px;
+}
+
+.Select--single {
+  & > .Select-control {
+    .Select-value { line-height: 38px; }
+  }
+}

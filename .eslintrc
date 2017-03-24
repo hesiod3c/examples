@@ -1,0 +1,54 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parser": "babel-eslint",
+  "globals": {
+    "document": true,
+    "window": true,
+    "XMLHttpRequest": true,
+    "define": true,
+    "require": true,
+    "expect": true,
+    "assert": true,
+    "jest": true,
+    "process": true,
+    "ENDPOINTS": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": true
+    }
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "settings": {
+    "react": {
+      "createClass": "createClass",
+      "pragma": "React",
+      "version": "15.0"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": false,
+    "es6": true,
+    "commonjs": true,
+    "mocha": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "comma-dangle": 0,
+    "react/prop-types": 0,
+    "react/no-did-mount-set-state": 0,
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
+    "no-unreachable": 0,
+    "no-case-declarations": 0,
+    "no-console": 0,
+    "complexity": ["off", 11]
+  }
+}

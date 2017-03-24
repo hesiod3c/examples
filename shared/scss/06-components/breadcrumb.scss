@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+$breadcrumb-color: #333;
+$breadcrumb-color-link: #676a6c;
+$breadcrumb-color-separate: #ccc;
+
+/* ==========================================================================
+   breadcrumb
+   ========================================================================== */
+.breadcrumb-list {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  display: inline-block;
+
+  &:before {
+    color: $breadcrumb-color-separate;
+    content: "/\00a0";
+    padding: 0 5px;
+  }
+
+  &:first-child {
+
+    &:before {
+      content: "";
+      padding: 0;
+    }
+  }
+}
+
+.breadcrumb-link {
+  color: $breadcrumb-color-link;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.breadcrumb-text {
+  color: $breadcrumb-color;
+}
