@@ -1,12 +1,49 @@
-'use strict';
-
-const path = require('path');
 const webpack = require('webpack');
-const validate = require('webpack-validator');
+const yargs = require('yargs');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 const autoprefixer = require('autoprefixer');
+const options = yargs
+  .alias('p', 'optimize-minimize')
+  .alias('d', 'debug')
+  .option('port', {
+    default: '8080',
+    type: 'string'
+  })
+  .argv;
 
+const baseConfig = {
+  entry: {
+    'blacksmith': './shared/index.js',
+  },
 
-module.exports = validate({
+  output: {
+    path: './dist',
+    filename: '[name].min.js'
+  },
+
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react',
+      }
+    }
+  ],
+
+  resolve: {
+    modulesDirectories: [
+      'node_modules'
+    ],
+    extensions: ['', '.js', '.jsx', '.scss']
+  },
+
+  eslint: {
+    configFile: '.eslintrc'
+  },
+
   module: {
     preLoaders: [
       {
@@ -58,4 +95,31 @@ module.exports = validate({
   postcss: function () {
     return [autoprefixer];
   },
-});
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(options.optimizeMinimize ? 'production' : 'development')
+      }
+    }),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      comments: false,
+      sourceMap: false
+    }),
+    new ExtractTextPlugin(`[name].min.css`, {
+      allowChunks: true
+    })
+  ]
+};
+
+if (options.optimizeMinimize) {
+  baseConfig.devtool = 'source-map';
+}
+
+module.exports =  baseConfig;

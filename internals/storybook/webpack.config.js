@@ -1,5 +1,5 @@
 const kadiraWebpackConfig = require('@kadira/storybook/dist/server/config/defaults/webpack.config.js');
-const webpackConfig = require('../webpack/webpack.base.config.js');
+const webpackConfig = require('../webpack/webpack.config.js');
 
 module.exports = function (config, env) {
   const newConfig = kadiraWebpackConfig(config, env);

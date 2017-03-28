@@ -42,10 +42,48 @@
   - [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [Vim](https://github.com/scrooloose/syntastic/tree/master/syntax_checkers/javascript)
 
-## Clone
+
+## In the your project
+
 ```bash
-git clone ssh://git@stash.b2w/b2cspacey/blacksmith.git --recursive 
+// .npmrc
+registry=http://npm.atlas.b2w
 ```
+
+```bash
+npm install spacey-blacksmith
+```
+
+```bash
+// package.json
+"devDependencies": {
+  "spacey-blacksmith": "vX.X.X"
+}
+```
+
+```bash
+// import the CSS
+
+// ex: layout.js
+import '[node_modules path]/spacey-blacksmith/dist/blacksmith.min.css';
+
+// component.js
+import { Alert } from 'spacey-blacksmith';
+
+// webpack
+{
+  test: /\.scss$/,
+  loader: 'style!css?modules=1&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss!sass?sourceMap',
+  include: path.resolve(__dirname, '../../source'),
+  exclude: path.resolve(__dirname, "../../node_modules")
+},
+{
+  test: /\.css/,
+  loader: 'style!css',
+  include: path.resolve(__dirname, "../../node_modules/spacey-blacksmith/dist/")
+}
+```
+
 
 ## Install
 
