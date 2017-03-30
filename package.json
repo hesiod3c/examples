@@ -3,7 +3,7 @@
   "version": "v0.1.0",
   "description": "Spacey Blacksmith",
   "scripts": {
-    "build": "cross-env NODE_ENV=production babel-node helpers/build/build-cli.js",
+    "build": "cross-env NODE_ENV=production babel-node helpers/build/build-cli.js && webpack --progress --config ./internals/webpack/webpack.config.js",
     "build:storybook": "cross-env NODE_ENV=development build-storybook -c ./internals/storybook -o .out",
     "lint": "yarn lint:sass && yarn lint:js",
     "lint:js": "eslint source/**",

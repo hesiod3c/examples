@@ -6,8 +6,8 @@
         [
           "css-modules-transform", {
           "preprocessCss": "./internals/css-modules-transform.js",
-          "extensions": [".scss"],
-          "extractCss": "./dist/blacksmith.min.css"
+          "generateScopedName": "[name]_[local]_[hash:base64:5]",
+          "extensions": [".scss"]
         }
         ]
       ],
