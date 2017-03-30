@@ -1,6 +1,6 @@
 {
   "name": "spacey-blacksmith",
-  "version": "0.0.0",
+  "version": "v0.1.0",
   "description": "Spacey Blacksmith",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel-node helpers/build/build-cli.js",
