@@ -3,6 +3,7 @@
 /* ==========================================================================
   Variables
   ========================================================================== */
+$background-color: #fff;
 $border-color: #ddd;
 
 /* ==========================================================================
@@ -98,9 +99,12 @@ table > tfoot > tr > td {
   .react-bs-table-search-form {
     margin-bottom: 0;
   }
+
+  & > .table { display: none; }
 }
 
 .react-bs-table {
+  background: $background-color;
   border: 1px solid $border-color;
   border-radius: 5px;
   margin: 5px 0;
