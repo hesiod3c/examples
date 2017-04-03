@@ -248,6 +248,23 @@ $shadow-color: rgba(0, 0, 0, 0.125);
   }
 }
 
+/* None
+ ========================================================================== */
+.transparent {
+  @extend %button;
+
+  background: none;
+  border: none;
+
+  &.outline {
+    background: none;
+  }
+
+  &:hover {
+    background: none;
+  }
+}
+
 /* Sizes
  ========================================================================== */
 .mini {
@@ -272,6 +289,12 @@ $shadow-color: rgba(0, 0, 0, 0.125);
   font-size: 18px;
   line-height: 1.3333333;
   padding: 10px 16px;
+}
+
+.none {
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
 }
 
 /* Block

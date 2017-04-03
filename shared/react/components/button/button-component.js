@@ -62,8 +62,8 @@ class Button extends PureComponent {
     circle: PropTypes.bool,
     loading: PropTypes.bool,
     type: PropTypes.oneOf(['button', 'reset', 'submit']),
-    style: PropTypes.oneOf(['default', 'primary', 'success', 'info', 'warning', 'danger']),
-    size: PropTypes.oneOf(['mini', 'small','medium', 'large']),
+    style: PropTypes.oneOf(['default', 'primary', 'success', 'info', 'warning', 'danger', 'transparent']),
+    size: PropTypes.oneOf(['mini', 'small','medium', 'large', 'none']),
     onClick: PropTypes.func,
     children: PropTypes.any.isRequired
   };

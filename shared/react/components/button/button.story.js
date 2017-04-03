@@ -22,6 +22,9 @@ stories.addWithInfo(
       <Button style="info">Info</Button>&nbsp;
       <Button style="warning">Warning</Button>&nbsp;
       <Button style="danger">Danger</Button>&nbsp;
+      <Button style="transparent" size="none">
+        <SvgIcon />
+      </Button>&nbsp;
     </div>
   )
 );
