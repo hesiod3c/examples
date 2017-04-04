@@ -15,14 +15,33 @@ class DatetimePicker extends Component {
    * @return {ReactElement} markup
    */
   render() {
-    const { onChange, name } = this.props;
+    const { onChange, name, inputProps, value, defaultValue, input, open, utc, onFocus, onBlur, viewMode, className, isValidDate, renderDay, renderMonth, renderYear, strictParsing, closeOnSelect, closeOnTab, timeConstraints, disableOnClickOutside } = this.props;
     return (
       <Datetime
+        className={className}
         dateFormat={'DD/MM/YYYY'}
         timeFormat={'H:mm'}
         locale="pt-br"
         onChange={onChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
         name={name}
+        inputProps={inputProps}
+        value={value}
+        defaultValue={defaultValue}
+        input={input}
+        open={open}
+        utc={utc}
+        viewMode={viewMode}
+        isValidDate={isValidDate}
+        renderDay={renderDay}
+        renderMonth={renderMonth}
+        renderYear={renderYear}
+        strictParsing={strictParsing}
+        closeOnSelect={closeOnSelect}
+        closeOnTab={closeOnTab}
+        timeConstraints={timeConstraints}
+        disableOnClickOutside={disableOnClickOutside}
       />
     );
   }
