@@ -8,7 +8,7 @@
     "lint": "yarn lint:sass && yarn lint:js",
     "lint:js": "eslint source/**",
     "lint:sass": "sass-lint 'source/**/*.scss' --verbose --no-exit",
-    "precommit": "yarn lint",
+    "precommit": "yarn lint && yarn build",
     "prepush": "jest --setupTestFrameworkScriptFile=internals/test/setup.js",
     "storybook": "webpack-dashboard -- start-storybook -p 9000 -c ./internals/storybook",
     "test": "jest --setupTestFrameworkScriptFile=internals/test/setup.js",
