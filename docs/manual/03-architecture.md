@@ -18,41 +18,62 @@
 ├── docs
 │   ├── manual
 ├── helpers
+│   ├── build
+│   └── component
 ├── internals
 │   ├── storybook
 │   ├── test
 │   └── webpack
 └── shared
-    ├── components
-    │   ├── alert
-    │   ├── breadcrumb
-    │   ├── button
-    │   ├── form
-    │   ├── form-actions
-    │   ├── form-control
-    │   ├── form-group
-    │   ├── form-label
-    │   ├── grid
-    │   ├── grid-col
-    │   ├── grid-row
-    │   ├── help-text
-    │   ├── image
-    │   ├── list
-    │   ├── modal
-    │   ├── notifier
-    │   ├── pagination
-    │   ├── panel
-    │   ├── suggestions
-    │   ├── svg-icon
-    │   └── tag
-    ├── images
-        └── svg
-            └── icons
+    ├── angular
+    │   └── components
+    │       ├── button
+    ├── images
+    │   └── svg
+    │       └── icons
+    ├── react
+    │   ├── components
+    │   │   ├── alert
+    │   │   ├── breadcrumb
+    │   │   ├── button
+    │   │   ├── form
+    │   │   ├── form-actions
+    │   │   ├── form-control
+    │   │   ├── form-group
+    │   │   ├── form-label
+    │   │   ├── grid
+    │   │   ├── grid-col
+    │   │   ├── grid-row
+    │   │   ├── help-text
+    │   │   ├── image
+    │   │   ├── list
+    │   │   ├── modal
+    │   │   ├── notifier
+    │   │   ├── pagination
+    │   │   ├── panel
+    │   │   ├── suggestions
+    │   │   ├── svg-icon
+    │   │   └── tag
+    │   └── utils
+    ├── scss
+    │   ├── 00-settings
+    │   ├── 01-tools
+    │   ├── 02-generic
+    │   ├── 03-base
+    │   ├── 04-vendor
+    │   ├── 05-objects
+    │   ├── 06-components
+    │   ├── 07-pages
+    │   ├── 08-theme
+    │   └── 09-trumps
+    └── vue
+        └── components
+            ├── button
 ```
 
 ## Components
 
-  - components
+  - components (react)
     - button
       - button-component.js `component`
       - button.scss `style`
