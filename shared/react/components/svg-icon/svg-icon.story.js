@@ -38,6 +38,7 @@ stories.addWithInfo('Normal', () => (
     <SvgIcon name="exit" />
     <SvgIcon name="info-circle" />
     <SvgIcon name="shield" />
+    <SvgIcon name="calendar" />
   </div>
 ));
 
@@ -71,6 +72,7 @@ stories.addWithInfo('Size', () => (
     <SvgIcon size="4rem" name="exit" />
     <SvgIcon size="4rem" name="info-circle" />
     <SvgIcon size="4rem" name="shield" />
+    <SvgIcon size="4rem"  name="calendar" />
   </div>
 ));
 
@@ -104,5 +106,6 @@ stories.addWithInfo('Color', () => (
     <SvgIcon color="#ffcc00" name="exit" />
     <SvgIcon color="#ffcc00" name="info-circle" />
     <SvgIcon color="#ffcc00" name="shield" />
+    <SvgIcon color="#ffcc00" name="calendar" />
   </div>
 ));
