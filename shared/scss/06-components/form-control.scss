@@ -16,6 +16,7 @@ $disabled-color: #999;
 
 /* Addon
    ========================================================================== */
+$addon-background-color: #ccc;
 $addon-border-color: #ccc;
 $addon-color: #555;
 
@@ -49,6 +50,7 @@ $addon-color: #555;
 /* addon
 ========================================================================== */
 %addon {
+  background: $addon-background-color;
   border: 1px solid $addon-border-color;
   border-radius: 4px;
   color: $addon-color;

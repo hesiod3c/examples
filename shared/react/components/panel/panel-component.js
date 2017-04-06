@@ -1,8 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
-// styles
-import styles from '../../../scss/06-components/panel.scss';
+// style
+import data from '../../interface';
+const styles = data.styles.panel;
 
 /**
  * Panel component

@@ -2,7 +2,8 @@ import React, { PureComponent, PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 // style
-import styles from '../../../scss/06-components/button.scss';
+import data from '../../interface';
+const styles = data.styles.button;
 
 /**
  * Button Component

@@ -1,7 +1,16 @@
 import React, { PureComponent } from 'react';
 import onClickOutside from 'react-onclickoutside';
 
+/**
+ * DateTimePickerYears component
+ * @extends {PureComponent }
+ * @class
+ */
 class DateTimePickerYears extends PureComponent {
+  /**
+   * @constructor
+   * @param {Object} props
+   */
   constructor(props){
     super(props);
 
@@ -12,6 +21,10 @@ class DateTimePickerYears extends PureComponent {
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
+  /**
+   * renderYears
+   * @param {Number} year
+   */
   renderYears( year ) {
     let years = [];
     let i = -1;
@@ -82,24 +95,43 @@ class DateTimePickerYears extends PureComponent {
     return rows;
   }
 
+  /**
+   * updateSelectedYear
+   * @param {EventListener} event
+   */
   updateSelectedYear( event ) {
     this.props.updateSelectedDate( event );
   }
 
+  /**
+   * renderYear
+   * @param {Object} props
+   * @param {String} year
+   */
   renderYear( props, year ) {
     return(
       <td {...props}>{year}</td>
     );
   }
 
+  /**
+   * alwaysValidDate
+   */
   alwaysValidDate() {
     return 1;
   }
 
+  /**
+   * handleClickOutside
+   */
   handleClickOutside() {
     this.props.handleClickOutside();
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     let year = parseInt( this.props.viewDate.year() / 10, 10 ) * 10;
 

@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import { Creatable } from 'react-select';
 import CSSModules from 'react-css-modules';
 // style
-import styles from '../../../scss/06-components/autocomplete.scss';
+import data from '../../interface';
+const styles = data.styles.autocomplete;
 
 /**
  * Autocomplete Component

@@ -10,7 +10,8 @@ import List from '../list';
 import Button from '../button';
 import SvgIcon from '../svg-icon';
 // style
-import styles from '../../../scss/06-components/choice-box.scss';
+import data from '../../interface';
+const styles = data.styles.choiceBox;
 
 /**
  * ChoiceBox Component

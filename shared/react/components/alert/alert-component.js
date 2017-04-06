@@ -5,11 +5,11 @@ import classNames from 'classnames';
 import Button from '../button';
 import SvgIcon from '../svg-icon';
 // style
-import styles from '../../../scss/06-components/alert.scss';
-
+import data from '../../interface';
+const styles = data.styles.alert;
 /**
  * Alert component
- * @extends {PureComponent }
+ * @extends { PureComponent }
  * @class
  */
 class Alert extends PureComponent {
@@ -31,6 +31,7 @@ class Alert extends PureComponent {
    * @property {Boolean} showIcon
    * @property {Boolean} dark
    * @property {String} id
+   * @property {Node} children
    */
   static defaultProps = {
     type: 'info',
@@ -38,7 +39,8 @@ class Alert extends PureComponent {
     dismissTitle: 'Notificação',
     showIcon: false,
     dark: false,
-    id: ''
+    id: undefined,
+    children: undefined
   };
 
   /**
@@ -49,6 +51,7 @@ class Alert extends PureComponent {
    * @property {Boolean} showIcon
    * @property {Boolean} dark
    * @property {String} id
+   * @property {Node} children
    */
   static propTypes = {
     type: PropTypes.oneOf(['info', 'warning', 'success', 'danger']),
@@ -56,7 +59,8 @@ class Alert extends PureComponent {
     dismissTitle: PropTypes.string,
     showIcon: PropTypes.bool,
     dark: PropTypes.bool,
-    id: PropTypes.string
+    id: PropTypes.string,
+    children: PropTypes.any.isRequired
   };
 
   /**

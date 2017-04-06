@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 import { randomId } from '../../utils/property';
 // style
-import styles from '../../../scss/06-components/form-group.scss';
+import data from '../../interface';
+const styles = data.styles.formGroup;
 
 /**
  * Form Group component

@@ -2,7 +2,8 @@ import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 // style
-import styles from '../../../scss/06-components/form-label.scss';
+import data from '../../interface';
+const styles = data.styles.formLabel;
 
 /**
  * Form Label component

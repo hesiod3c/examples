@@ -4,17 +4,23 @@ import CSSModules from 'react-css-modules';
 // components
 import FormControl from '../form-control';
 import SvgIcon from '../svg-icon';
-import CalendarContainer from './calendar/index';
+import Calendar from './calendar/index';
 // style
-import styles from '../../../scss/06-components/datetime-picker.scss';
+import data from '../../interface';
+const styles = data.styles.datetimePicker;
 
 const nof = () => {};
+
 /**
- * DatetimePicker component
+ * DatetimePicker Component
+ * @extends {PureComponent }
  * @class
  */
 class DatetimePicker extends PureComponent {
-
+  /**
+   * @constructor
+   * @param {Object} props
+   */
   constructor(props){
     super(props);
 
@@ -47,6 +53,10 @@ class DatetimePicker extends PureComponent {
     this.state = this.getStateFromProps(this.props);
   }
 
+  /**
+   * propTypes
+   * @property {Function} onFocus
+   */
   static propTypes = {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
@@ -64,14 +74,18 @@ class DatetimePicker extends PureComponent {
     closeOnTab: PropTypes.bool
   };
 
+  /**
+   * defaultProps
+   * @property {Function} onFocus
+   */
   static defaultProps = {
+    onFocus: nof,
+    onBlur: nof,
+    onChange: nof,
     className: '',
     defaultValue: '',
     inputProps: {},
     input: true,
-    onFocus: nof,
-    onBlur: nof,
-    onChange: nof,
     timeFormat: true,
     timeConstraints: {},
     dateFormat: true,
@@ -81,6 +95,9 @@ class DatetimePicker extends PureComponent {
     utc: false
   };
 
+  /**
+   * componentWillMount
+   */
   componentWillMount() {
     if (this.state.open === undefined) {
       this.setState({
@@ -93,6 +110,9 @@ class DatetimePicker extends PureComponent {
     });
   }
 
+  /**
+   * getStateFromProps
+   */
   getStateFromProps(props) {
     let formats = this.getFormats( props );
     let date = props.value || props.defaultValue;
@@ -129,6 +149,9 @@ class DatetimePicker extends PureComponent {
     };
   }
 
+  /**
+   * getUpdateOn
+   */
   getUpdateOn(formats) {
     if ( formats.date.match(/[lLD]/) ) {
       return 'days';
@@ -143,6 +166,9 @@ class DatetimePicker extends PureComponent {
     return 'days';
   }
 
+  /**
+   * getFormats
+   */
   getFormats(props) {
     let formats = {
         date: props.dateFormat || '',
@@ -165,6 +191,9 @@ class DatetimePicker extends PureComponent {
     return formats;
   }
 
+  /**
+   * componentWillReceiveProps
+   */
   componentWillReceiveProps(nextProps) {
     let formats = this.getFormats( nextProps );
     let updatedState = {};
@@ -218,6 +247,9 @@ class DatetimePicker extends PureComponent {
     this.setState( updatedState );
   }
 
+  /**
+   * onInputChange
+   */
   onInputChange(e) {
     let value = e.target === null ? e : e.target.value
     let localMoment = this.localMoment( value, this.state.inputFormat );
@@ -236,12 +268,18 @@ class DatetimePicker extends PureComponent {
     });
   }
 
+  /**
+   * onInputKey
+   */
   onInputKey(e) {
     if ( e.which === 9 && this.props.closeOnTab ) {
       this.closeCalendar();
     }
   }
 
+  /**
+   * showView
+   */
   showView(view) {
     let me = this;
     return function() {
@@ -249,6 +287,9 @@ class DatetimePicker extends PureComponent {
     };
   }
 
+  /**
+   * setDate
+   */
   setDate( type ) {
     let nextViews = {
       month: 'days',
@@ -263,14 +304,23 @@ class DatetimePicker extends PureComponent {
     };
   }
 
+  /**
+   * addTime
+   */
   addTime( amount, type, toSelected ) {
     return this.updateTime( 'add', amount, type, toSelected );
   }
 
+  /**
+   * subtractTime
+   */
   subtractTime( amount, type, toSelected ) {
     return this.updateTime( 'subtract', amount, type, toSelected );
   }
 
+  /**
+   * updateTime
+   */
   updateTime( op, amount, type, toSelected ) {
     let me = this;
 
@@ -285,6 +335,9 @@ class DatetimePicker extends PureComponent {
     };
   }
 
+  /**
+   * setTime
+   */
   setTime( type, value ) {
     let index = this.allowedSetTime.indexOf( type ) + 1;
     let state = this.state;
@@ -308,6 +361,9 @@ class DatetimePicker extends PureComponent {
     this.props.onChange( date );
   }
 
+  /**
+   * updateSelectedDate
+   */
   updateSelectedDate( e, close ) {
     let target = e.target;
     let modifier = 0;
@@ -361,6 +417,9 @@ class DatetimePicker extends PureComponent {
     this.props.onChange( date );
   }
 
+  /**
+   * openCalendar
+   */
   openCalendar() {
     if (!this.state.open) {
       this.setState({ open: true }, function() {
@@ -369,12 +428,18 @@ class DatetimePicker extends PureComponent {
     }
   }
 
+  /**
+   * closeCalendar
+   */
   closeCalendar() {
     this.setState({ open: false }, function () {
       this.props.onBlur( this.state.selectedDate || this.state.inputValue );
     });
   }
 
+  /**
+   * handleClickOutside
+   */
   handleClickOutside() {
     if ( this.props.input && this.state.open && !this.props.open ) {
       this.setState({ open: false }, function() {
@@ -383,6 +448,9 @@ class DatetimePicker extends PureComponent {
     }
   }
 
+  /**
+   * localMoment
+   */
   localMoment( date, format, props ) {
     props = props || this.props;
     let momentFn = props.utc ? moment.utc : moment;
@@ -392,6 +460,9 @@ class DatetimePicker extends PureComponent {
     return m;
   }
 
+  /**
+   * getComponentProps
+   */
   getComponentProps() {
     let me = this;
     let formats = this.getFormats( this.props );
@@ -444,7 +515,7 @@ class DatetimePicker extends PureComponent {
           />
         }
         <div key="dt" className="rdtPicker">
-          <CalendarContainer
+          <Calendar
             {...viewProps}
             view={this.state.currentView}
             onClickOutside={this.handleClickOutside}

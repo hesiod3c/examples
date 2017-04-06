@@ -2,8 +2,16 @@ import React, { PureComponent } from 'react';
 import moment from 'moment';
 import onClickOutside from 'react-onclickoutside';
 
+/**
+ * DateTimePickerDays component
+ * @extends {PureComponent }
+ * @class
+ */
 class DateTimePickerDays extends PureComponent {
-
+  /**
+   * @constructor
+   * @param {Object} props
+   */
   constructor(props){
     super(props);
 
@@ -18,8 +26,8 @@ class DateTimePickerDays extends PureComponent {
 
   /**
    * Get a list of the days of the week
-   * depending on the current locale
-   * @return {array} A list with the shortname of the days
+   * @param {Object} locale
+   * @return {Array} dow - A list with the shortname of the days
    */
   getDaysOfWeek( locale ) {
     let days = locale._weekdaysMin;
@@ -34,6 +42,10 @@ class DateTimePickerDays extends PureComponent {
     return dow;
   }
 
+  /**
+   * renderDays
+   * @return {Array} weeks
+   */
   renderDays() {
     let date = this.props.viewDate;
     let selected = this.props.selectedDate && this.props.selectedDate.clone();
@@ -91,16 +103,30 @@ class DateTimePickerDays extends PureComponent {
     return weeks;
   }
 
+  /**
+   * updateSelectedDate
+   * @param {EventListener} event
+   */
   updateSelectedDate( event ) {
     this.props.updateSelectedDate( event, true );
   }
 
+  /**
+   * renderDay
+   * @param {Object} props
+   * @param {Object} currentDate
+   * @return {ReactElement} markup
+   */
   renderDay( props, currentDate ) {
     return (
       <td {...props}>{currentDate.date()}</td>
     )
   }
 
+  /**
+   * renderFooter
+   * @return {ReactElement} markup
+   */
   renderFooter() {
     if ( !this.props.timeFormat ) {
       return '';
@@ -117,14 +143,24 @@ class DateTimePickerDays extends PureComponent {
     );
   }
 
+  /**
+   * alwaysValidDate
+   */
   alwaysValidDate() {
     return 1;
   }
 
+  /**
+   * handleClickOutside
+   */
   handleClickOutside() {
     this.props.handleClickOutside();
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     const footer = this.renderFooter();
     const date = this.props.viewDate;
@@ -162,4 +198,7 @@ class DateTimePickerDays extends PureComponent {
   }
 }
 
+/**
+ * @example <DateTimePickerDays />
+ */
 export default onClickOutside(DateTimePickerDays);

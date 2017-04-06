@@ -5,7 +5,8 @@ import CSSModules from 'react-css-modules';
 import Button from '../button';
 import SvgIcon from '../svg-icon';
 // style
-import styles from '../../../scss/06-components/modal.scss';
+import data from '../../interface';
+const styles = data.styles.modal;
 
 /**
  * Modal Component

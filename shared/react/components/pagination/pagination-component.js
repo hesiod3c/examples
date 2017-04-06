@@ -3,7 +3,8 @@ import paginator from "paginator";
 import classNames from "classnames";
 import CSSModules from 'react-css-modules';
 // style
-import styles from '../../../scss/06-components/pagination.scss';
+import data from '../../interface';
+const styles = data.styles.pagination;
 
 /**
  * Pagination component

@@ -1,8 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import classNames from "classnames";
-// styles
-import styles from '../../../scss/06-components/suggestions.scss';
+// style
+import data from '../../interface';
+const styles = data.styles.suggestions;
 
 function markIt (input, query) {
   const escaped = query.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');

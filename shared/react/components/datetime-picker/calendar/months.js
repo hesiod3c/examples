@@ -5,7 +5,16 @@ const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
+/**
+ * DateTimePickerMonths component
+ * @extends {PureComponent }
+ * @class
+ */
 class DateTimePickerMonths extends PureComponent {
+  /**
+   * @constructor
+   * @param {Object} props
+   */
   constructor(props){
     super(props);
 
@@ -16,6 +25,9 @@ class DateTimePickerMonths extends PureComponent {
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
+  /**
+   * renderMonths
+   */
   renderMonths() {
     let date = this.props.selectedDate;
     let month = this.props.viewDate.month();
@@ -80,10 +92,19 @@ class DateTimePickerMonths extends PureComponent {
     return rows;
   }
 
+  /**
+   * updateSelectedMonth
+   * @param {EventListener} event
+   */
   updateSelectedMonth(event) {
     this.props.updateSelectedDate( event );
   }
 
+  /**
+   * updateSelectedDate
+   * @param {Object} props
+   * @param {String} month
+   */
   renderMonth( props, month ) {
     let localMoment = this.props.viewDate;
     let monthStr = localMoment.localeData().monthsShort( localMoment.month( month ) );
@@ -97,14 +118,24 @@ class DateTimePickerMonths extends PureComponent {
     );
   }
 
+  /**
+   * alwaysValidDate
+   */
   alwaysValidDate() {
     return 1;
   }
 
+  /**
+   * handleClickOutside
+   */
   handleClickOutside() {
     this.props.handleClickOutside();
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     return(
       <div className="rdtMonths">

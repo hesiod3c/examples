@@ -2,7 +2,8 @@ import React, { PureComponent, PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 // style
-import styles from '../../../scss/06-components/grid.scss';
+import data from '../../interface';
+const styles = data.styles.grid;
 
 /**
  * Grid component

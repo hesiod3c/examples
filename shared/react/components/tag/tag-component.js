@@ -4,8 +4,9 @@ import classNames from "classnames";
 // components
 import Button from '../button';
 import SvgIcon from '../svg-icon';
-// styles
-import styles from '../../../scss/06-components/tag.scss';
+// style
+import data from '../../interface';
+const styles = data.styles.tag;
 
 /**
  * Tag component

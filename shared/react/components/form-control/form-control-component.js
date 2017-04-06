@@ -4,7 +4,8 @@ import CSSModules from 'react-css-modules';
 // components
 import SvgIcon from '../svg-icon';
 // style
-import styles from '../../../scss/06-components/form-control.scss';
+import data from '../../interface';
+const styles = data.styles.formControl;
 
 /**
  * Form Control component

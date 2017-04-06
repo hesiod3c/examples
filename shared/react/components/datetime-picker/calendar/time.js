@@ -1,8 +1,16 @@
 import React, { PureComponent } from 'react';
 import onClickOutside from 'react-onclickoutside';
 
+/**
+ * DateTimePickerTime component
+ * @extends {PureComponent }
+ * @class
+ */
 class DateTimePickerTime extends PureComponent {
-
+  /**
+   * @constructor
+   * @param {Object} props
+   */
   constructor(props){
     super(props);
 
@@ -28,6 +36,10 @@ class DateTimePickerTime extends PureComponent {
     }
   }
 
+  /**
+   * calculateState
+   * @param {Object} props
+   */
   calculateState( props ) {
     let date = props.selectedDate || props.viewDate;
     let format = props.timeFormat;
@@ -62,6 +74,10 @@ class DateTimePickerTime extends PureComponent {
     };
   }
 
+  /**
+   * renderCounter
+   * @param {String} type
+   */
   renderCounter( type ) {
     if ( type !== 'daypart' ) {
       let value = this.state[ type ];
@@ -84,6 +100,9 @@ class DateTimePickerTime extends PureComponent {
     return '';
   }
 
+  /**
+   * renderDayPart
+   */
   renderDayPart() {
     return(
       <div key="dayPart" className="rdtCounter">
@@ -94,6 +113,9 @@ class DateTimePickerTime extends PureComponent {
     );
   }
 
+  /**
+   * componentWillMount
+   */
   componentWillMount() {
     let me = this;
     me.timeConstraints = {
@@ -124,10 +146,17 @@ class DateTimePickerTime extends PureComponent {
     this.setState( this.calculateState( this.props ) );
   }
 
+  /**
+   * componentWillReceiveProps
+   */
   componentWillReceiveProps( nextProps ) {
     this.setState( this.calculateState( nextProps ) );
   }
 
+  /**
+   * updateMilli
+   * @param {EventListener} e
+   */
   updateMilli( e ) {
     let milli = parseInt( e.target.value, 10 );
     if ( milli === e.target.value && milli >= 0 && milli < 1000 ) {
@@ -136,6 +165,9 @@ class DateTimePickerTime extends PureComponent {
     }
   }
 
+  /**
+   * renderHeader
+   */
   renderHeader() {
     if ( !this.props.dateFormat )
       return null;
@@ -151,6 +183,11 @@ class DateTimePickerTime extends PureComponent {
     );
   }
 
+  /**
+   * onStartClicking
+   * @param {String} action
+   * @param {String} type
+   */
   onStartClicking( action, type ) {
     let me = this;
 
@@ -177,6 +214,10 @@ class DateTimePickerTime extends PureComponent {
     };
   }
 
+  /**
+   * toggleDayPart
+   * @param {String} type
+   */
   toggleDayPart( type ) { // type is always 'hours'
     let value = parseInt( this.state[ type ], 10) + 12;
     if ( value > this.timeConstraints[ type ].max )
@@ -184,6 +225,10 @@ class DateTimePickerTime extends PureComponent {
     return this.pad( type, value );
   }
 
+  /**
+   * increase
+   * @param {String} type
+   */
   increase( type ) {
     let value = parseInt( this.state[ type ], 10) + this.timeConstraints[ type ].step;
     if ( value > this.timeConstraints[ type ].max )
@@ -191,6 +236,10 @@ class DateTimePickerTime extends PureComponent {
     return this.pad( type, value );
   }
 
+  /**
+   * decrease
+   * @param {String} type
+   */
   decrease( type ) {
     let value = parseInt( this.state[ type ], 10) - this.timeConstraints[ type ].step;
     if ( value < this.timeConstraints[ type ].min )
@@ -198,6 +247,11 @@ class DateTimePickerTime extends PureComponent {
     return this.pad( type, value );
   }
 
+  /**
+   * pad
+   * @param {String} type
+   * @param {String} value
+   */
   pad( type, value ) {
     let str = value + '';
     while ( str.length < this.padValues[ type ] )
@@ -205,10 +259,17 @@ class DateTimePickerTime extends PureComponent {
     return str;
   }
 
+  /**
+   * handleClickOutside
+   */
   handleClickOutside() {
     this.props.handleClickOutside();
   }
 
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
   render() {
     let me = this;
     let counters = [];
