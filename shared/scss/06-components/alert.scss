@@ -167,8 +167,6 @@ $close-shadow-color: #fff;
 }
 
 .close {
-  background: none;
-  border: 0;
   color: $close-color;
   float: right;
   font-size: 21px;
@@ -179,11 +177,6 @@ $close-shadow-color: #fff;
   outline: none;
   padding: 0;
   text-shadow: 0 1px 0 $close-shadow-color;
-
-  &:hover {
-    background: none;
-    border: 0;
-  }
 }
 
 .icon {

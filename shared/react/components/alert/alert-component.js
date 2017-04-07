@@ -102,7 +102,7 @@ class Alert extends PureComponent {
       <div>
         <div className={fullClassName}>
           {onDismiss &&
-            <Button className={styles.close} title={dismissTitle} onClick={onDismiss}>&times;</Button>
+            <Button style="transparent" size="none" className={styles.close} title={dismissTitle} onClick={onDismiss}>&times;</Button>
           }
 
           {showIcon &&
