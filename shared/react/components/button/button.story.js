@@ -3,7 +3,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import { withKnobs, text, boolean } from '@kadira/storybook-addon-knobs';
 
 import Button from './index';
-import SvgIcon from '../svg-icon';
+import Svg from '../svg';
 
 const stories = storiesOf('Button', module);
 
@@ -23,7 +23,7 @@ stories.addWithInfo(
       <Button style="warning">Warning</Button>&nbsp;
       <Button style="danger">Danger</Button>&nbsp;
       <Button style="transparent" size="none">
-        <SvgIcon />
+        <Svg />
       </Button>&nbsp;
     </div>
   )
@@ -77,40 +77,40 @@ stories.addWithInfo('Block', () => (
 
 stories.addWithInfo('With icon', () => (
   <div>
-    <Button><SvgIcon /> Default</Button>&nbsp;
-    <Button style="primary"><SvgIcon /> Primary</Button>&nbsp;
-    <Button style="success">Success <SvgIcon /></Button>&nbsp;
-    <Button style="info"><SvgIcon /> Info <SvgIcon /></Button>&nbsp;
-    <Button style="warning" outline><SvgIcon /> Warning</Button>
+    <Button><Svg /> Default</Button>&nbsp;
+    <Button style="primary"><Svg /> Primary</Button>&nbsp;
+    <Button style="success">Success <Svg /></Button>&nbsp;
+    <Button style="info"><Svg /> Info <Svg /></Button>&nbsp;
+    <Button style="warning" outline><Svg /> Warning</Button>
     <br /><br />
-    <Button style="danger" block><SvgIcon /> Danger</Button>&nbsp;
+    <Button style="danger" block><Svg /> Danger</Button>&nbsp;
   </div>
 ));
 
-stories.addWithInfo('SvgIcon with circle style', () => (
+stories.addWithInfo('Svg with circle style', () => (
   <div>
-    <Button size="mini" circle><SvgIcon size="14px" /></Button>&nbsp;
-    <Button size="mini" circle><SvgIcon /></Button>&nbsp;
-    <Button size="mini" circle><SvgIcon size="36px" /></Button>&nbsp;
-    <Button size="mini" circle><SvgIcon size="50px" /></Button>
+    <Button size="mini" circle><Svg size="14px" /></Button>&nbsp;
+    <Button size="mini" circle><Svg /></Button>&nbsp;
+    <Button size="mini" circle><Svg size="36px" /></Button>&nbsp;
+    <Button size="mini" circle><Svg size="50px" /></Button>
     <br /><br />
-    <Button style="primary" size="small" circle><SvgIcon size="14px" /></Button>&nbsp;
-    <Button style="primary" size="small" circle><SvgIcon /></Button>&nbsp;
-    <Button style="primary" size="small" circle><SvgIcon size="36px" /></Button>&nbsp;
-    <Button style="primary" size="small" circle><SvgIcon size="50px" /></Button>
+    <Button style="primary" size="small" circle><Svg size="14px" /></Button>&nbsp;
+    <Button style="primary" size="small" circle><Svg /></Button>&nbsp;
+    <Button style="primary" size="small" circle><Svg size="36px" /></Button>&nbsp;
+    <Button style="primary" size="small" circle><Svg size="50px" /></Button>
     <br /><br />
-    <Button style="success" circle><SvgIcon size="14px" /></Button>&nbsp;
-    <Button style="success" circle><SvgIcon /></Button>&nbsp;
-    <Button style="success" circle><SvgIcon size="36px" /></Button>&nbsp;
-    <Button style="success" circle><SvgIcon size="50px" /></Button>
+    <Button style="success" circle><Svg size="14px" /></Button>&nbsp;
+    <Button style="success" circle><Svg /></Button>&nbsp;
+    <Button style="success" circle><Svg size="36px" /></Button>&nbsp;
+    <Button style="success" circle><Svg size="50px" /></Button>
     <br /><br />
-    <Button style="info" size="large" circle><SvgIcon size="14px" /></Button>&nbsp;
-    <Button style="info" size="large" circle><SvgIcon /></Button>&nbsp;
-    <Button style="info" size="large" circle><SvgIcon size="36px" /></Button>&nbsp;
-    <Button style="info" size="large" circle><SvgIcon size="50px" /></Button>
+    <Button style="info" size="large" circle><Svg size="14px" /></Button>&nbsp;
+    <Button style="info" size="large" circle><Svg /></Button>&nbsp;
+    <Button style="info" size="large" circle><Svg size="36px" /></Button>&nbsp;
+    <Button style="info" size="large" circle><Svg size="50px" /></Button>
     <br /><br />
-    <Button style="warning" size="large" circle><SvgIcon /></Button>&nbsp;
-    <Button style="danger" size="large" circle><SvgIcon /></Button>&nbsp;
+    <Button style="warning" size="large" circle><Svg /></Button>&nbsp;
+    <Button style="danger" size="large" circle><Svg /></Button>&nbsp;
   </div>
 ));
 
@@ -118,9 +118,9 @@ stories.addWithInfo('Rounded', () => (
   <div>
     <Button rounded>Default</Button>
     <br /><br />
-    <Button style="primary" rounded><SvgIcon /></Button>
+    <Button style="primary" rounded><Svg /></Button>
     <br /><br />
-    <Button style="success" rounded><SvgIcon /> Success</Button>
+    <Button style="success" rounded><Svg /> Success</Button>
     <br /><br />
     <Button style="info" disabled rounded>Info</Button>
     <br /><br />

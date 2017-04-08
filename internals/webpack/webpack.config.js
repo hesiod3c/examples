@@ -73,7 +73,7 @@ const baseConfig = {
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline'
+        loader: 'svg-react-loader'
       },
       {
         test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf|svg)$/,

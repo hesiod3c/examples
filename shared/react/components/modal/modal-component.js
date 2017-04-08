@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 // components
 import Button from '../button';
-import SvgIcon from '../svg-icon';
+import Svg from '../svg';
 // style
 import data from '../../interface';
 const styles = data.styles.modal;
@@ -52,7 +52,7 @@ class Modal extends PureComponent {
             <header className={styles.header}>
               <h3 className={styles['header-title']}>{data.header}</h3>
               <Button onClick={() => onDismiss(data)}>
-                <SvgIcon name="close" />
+                <Svg name="icon/close" />
               </Button>
             </header>
             }

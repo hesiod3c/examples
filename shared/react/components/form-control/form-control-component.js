@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 // components
-import SvgIcon from '../svg-icon';
+import Svg from '../svg';
 // style
 import data from '../../interface';
 const styles = data.styles.formControl;
@@ -178,13 +178,13 @@ class FormControl extends PureComponent {
 
     switch (state) {
       case 'success':
-        result = <SvgIcon name="check" />;
+        result = <Svg name="icon/check" />;
         break;
       case 'warning':
-        result = <SvgIcon name="warning" />;
+        result = <Svg name="icon/warning" />;
         break;
       case 'error':
-        result = <SvgIcon name="close" />;
+        result = <Svg name="icon/close" />;
         break;
     }
 

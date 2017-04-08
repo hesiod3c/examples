@@ -3,7 +3,7 @@ import moment from 'moment';
 import CSSModules from 'react-css-modules';
 // components
 import FormControl from '../form-control';
-import SvgIcon from '../svg-icon';
+import Svg from '../svg';
 import Calendar from './calendar/index';
 // style
 import data from '../../interface';
@@ -503,7 +503,7 @@ class DatetimePicker extends PureComponent {
         { this.props.input &&
           <FormControl
             {...this.props.inputProps}
-            addonBefore={<SvgIcon name="calendar" />}
+            addonBefore={<Svg name="icon/calendar" />}
             key="i"
             type="text"
             className={styles['form-control']}

@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import classNames from "classnames";
 // components
 import Button from '../button';
-import SvgIcon from '../svg-icon';
+import Svg from '../svg';
 // style
 import data from '../../interface';
 const styles = data.styles.tag;
@@ -60,7 +60,7 @@ class Tag extends PureComponent {
         {children}
         <span className={styles['tag-close']}>
           <Button onClick={onRemove}>
-            <SvgIcon name="close" size="12px" />
+            <Svg name="icon/close" size="12px" />
           </Button>
         </span>
       </div>

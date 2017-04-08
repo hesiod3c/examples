@@ -3,7 +3,7 @@ import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 // components
 import Button from '../button';
-import SvgIcon from '../svg-icon';
+import Svg from '../svg';
 // style
 import data from '../../interface';
 const styles = data.styles.alert;
@@ -70,13 +70,13 @@ class Alert extends PureComponent {
   getIcon(type) {
     switch (type){
       case 'info':
-        return 'info-circle';
+        return 'icon/info-circle';
       case 'success':
-        return 'check';
+        return 'icon/check';
       case 'warning':
-        return 'warning';
+        return 'icon/warning';
       case 'danger':
-        return 'shield';
+        return 'icon/shield';
     }
   }
 
@@ -102,11 +102,13 @@ class Alert extends PureComponent {
       <div>
         <div className={fullClassName}>
           {onDismiss &&
-            <Button style="transparent" size="none" className={styles.close} title={dismissTitle} onClick={onDismiss}>&times;</Button>
+            <Button style="transparent" size="none" className={styles.close} title={dismissTitle} onClick={onDismiss}>
+              <Svg name="icon/close" />
+            </Button>
           }
 
           {showIcon &&
-           <SvgIcon className={styles.icon} name={icon} size="30px" />
+           <Svg className={styles.icon} name={icon} size="30px" />
           }
           <div className={styles.msgContainer}>
             {headline ? <h4 className={styles.headline}>{headline}</h4> : null}

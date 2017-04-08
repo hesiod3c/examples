@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import { decorateAction } from '@kadira/storybook-addon-actions'
 import { withKnobs } from '@kadira/storybook-addon-knobs';
 
 import Dropdown from './index';
