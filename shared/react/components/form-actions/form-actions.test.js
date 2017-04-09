@@ -1,17 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
-jest.dontMock('./index');
-
+import '../../../../internals/test/helper';
 import FormActions from './index';
+
+import data from '../../interface';
+const styles = data.styles.formActions;
 
 /** @test {FormActions} */
 describe('FormActions component', function() {
-/** @test {FormActions#render} */
+  /** @test {FormActions#render} */
   describe('#render', () => {
-    it('renders correctly', () => {
-      const wrapper = shallow(<FormActions />);
-      expect(wrapper.length).toEqual(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <FormActions></FormActions>
+    );
+
+    it('Should output a form actions', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
+    });
+
+    it('Should output a form actions with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles['form-group-actions']));
     });
   });
 });

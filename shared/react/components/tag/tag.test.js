@@ -1,19 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-
+import '../../../../internals/test/helper';
 import Tag from './index';
 
+import data from '../../interface';
+const styles = data.styles.tag;
+
 /** @test {Tag} */
-describe('Tag component', () => {
-/** @test {Tag#render} */
+describe('Tag component', function() {
+  /** @test {Tag#render} */
   describe('#render', () => {
-    it('render correctly', () => {
-      const wrapper = shallow(
-        <Tag />
-      );
-      expect(wrapper.length).to.equal(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Tag>Test</Tag>
+    );
+
+    it('Should output a tag', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
+    });
+
+    it('Should output a tag with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles.tag));
     });
   });
 });
-

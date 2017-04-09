@@ -1,19 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-
+import '../../../../internals/test/helper';
 import GridCol from './index';
 
+import data from '../../interface';
+const styles = data.styles.gridCol;
+
 /** @test {GridCol} */
-describe('GridCol component', () => {
-/** @test {GridCol#render} */
+describe('GridCol component', function() {
+  /** @test {GridCol#render} */
   describe('#render', () => {
-    it('render correctly', () => {
-      const wrapper = shallow(
-        <GridCol />
-      );
-      expect(wrapper.length).to.equal(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <GridCol></GridCol>
+    );
+
+    it('Should output a grid col', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
+    });
+
+    it('Should output a grid col with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles[`col`]));
     });
   });
 });
-

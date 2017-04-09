@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 // components
@@ -31,6 +32,7 @@ class Alert extends PureComponent {
    * @property {Boolean} showIcon
    * @property {Boolean} dark
    * @property {String} id
+   * @property {String} headline
    * @property {Node} children
    */
   static defaultProps = {
@@ -40,6 +42,7 @@ class Alert extends PureComponent {
     showIcon: false,
     dark: false,
     id: undefined,
+    headline: undefined,
     children: undefined
   };
 
@@ -51,6 +54,7 @@ class Alert extends PureComponent {
    * @property {Boolean} showIcon
    * @property {Boolean} dark
    * @property {String} id
+   * @property {String}  headline
    * @property {Node} children
    */
   static propTypes = {
@@ -60,6 +64,7 @@ class Alert extends PureComponent {
     showIcon: PropTypes.bool,
     dark: PropTypes.bool,
     id: PropTypes.string,
+    headline: PropTypes.string,
     children: PropTypes.any.isRequired
   };
 
@@ -99,22 +104,20 @@ class Alert extends PureComponent {
     }
 
     return (
-      <div>
-        <div className={fullClassName}>
-          {onDismiss &&
-            <Button style="transparent" size="none" className={styles.close} title={dismissTitle} onClick={onDismiss}>
-              <Svg name="icon/close" />
-            </Button>
-          }
+      <div className={fullClassName}>
+        {onDismiss &&
+        <Button style="transparent" size="none" className={styles.close} title={dismissTitle} onClick={onDismiss}>
+          <Svg name="icon/close" />
+        </Button>
+        }
 
-          {showIcon &&
-           <Svg className={styles.icon} name={icon} size="30px" />
-          }
-          <div className={styles.msgContainer}>
-            {headline ? <h4 className={styles.headline}>{headline}</h4> : null}
-            <div className={styles.body}>
-              {children}
-            </div>
+        {showIcon &&
+        <Svg className={styles.icon} name={icon} size="30px" />
+        }
+        <div className={styles.msgContainer}>
+          {headline ? <h4 className={styles.headline}>{headline}</h4> : null}
+          <div className={styles.body}>
+            {children}
           </div>
         </div>
       </div>

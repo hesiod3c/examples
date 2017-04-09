@@ -1,18 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import {expect} from 'chai';
-
-jest.dontMock('./index');
-
+import '../../../../internals/test/helper';
 import FormLabel from './index';
+
+import data from '../../interface';
+const styles = data.styles.formLabel;
 
 /** @test {FormLabel} */
 describe('FormLabel component', function() {
   /** @test {FormLabel#render} */
   describe('#render', () => {
-    it('renders correctly', () => {
-      const wrapper = shallow(<FormLabel>Nome:</FormLabel>);
-      expect(wrapper.length).to.equal(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <FormLabel>Nome</FormLabel>
+    );
+
+    it('Should output a form label', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'label'));
+    });
+
+    it('Should output a form label with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles.label));
     });
   });
 });

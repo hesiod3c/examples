@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
 // components
@@ -86,8 +87,8 @@ class ChoiceBox extends PureComponent {
                   <FormControl type={tagString ? "radio" : "checkbox"}  name={tagString ? `choiceBox-${name}` : `choiceBox-${name}[]`} onChange={onToggle} checked={item.checked} value={item.slug} />
                   <FormLabel>{item.name}</FormLabel>
                   { allowDelete &&
-                    <Button style="transparent" size="none" className={styles['choiceBox-formGroup-button']} onClick={onDelete.bind(this, name, item.id)}>
-                      <Svg name="icon/trash" />
+                    <Button style="transparent" className={styles['choiceBox-formGroup-button']} onClick={onDelete.bind(this, name, item.id)}>
+                      <Svg name="icon/trash" color="#999999" />
                     </Button>
                   }
                 </FormGroup>

@@ -1,19 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-
+import '../../../../internals/test/helper';
 import Grid from './index';
 
+import data from '../../interface';
+const styles = data.styles.grid;
+
 /** @test {Grid} */
-describe('Grid component', () => {
-/** @test {Grid#render} */
+describe('Grid component', function() {
+  /** @test {Grid#render} */
   describe('#render', () => {
-    it('render correctly', () => {
-      const wrapper = shallow(
-        <Grid />
-      );
-      expect(wrapper.length).to.equal(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Grid></Grid>
+    );
+
+    it('Should output a grid', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
+    });
+
+    it('Should output a grid with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles['container']));
     });
   });
 });
-

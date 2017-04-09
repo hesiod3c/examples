@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from "react";
+import React, { PureComponent } from "react";
+import PropTypes from 'prop-types';
 import paginator from "paginator";
 import classNames from "classnames";
 import CSSModules from 'react-css-modules';

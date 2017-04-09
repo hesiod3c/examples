@@ -1,18 +1,19 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-
+import '../../../../internals/test/helper';
 import TagsInput from './index';
 
+import data from '../../interface';
+const styles = data.styles.tagsInput;
+
 /** @test {TagsInput} */
-describe('TagsInput component', () => {
+describe('TagsInput component', function() {
   /** @test {TagsInput#render} */
   describe('#render', () => {
-    it('render correctly', () => {
-      const wrapper = shallow(
-        <TagsInput />
-      );
-      expect(wrapper.length).to.equal(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <TagsInput />
+    );
+
+    it('Should output a tags input', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
     });
   });
 });

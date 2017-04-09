@@ -1,42 +1,23 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-import {expect} from 'chai';
-
-jest.dontMock('./index');
-
+import '../../../../internals/test/helper';
 import FormControl from './index';
+
+import data from '../../interface';
+const styles = data.styles.formControl;
 
 /** @test {FormControl} */
 describe('FormControl component', function() {
-/** @test {FormControl#render} */
+  /** @test {FormControl#render} */
   describe('#render', () => {
-    it('renders correctly', () => {
-      const wrapper = shallow(<FormControl />);
-      expect(wrapper.length).to.equal(1);
-    });
-  });
+    let instance = ReactTestUtils.renderIntoDocument(
+      <FormControl></FormControl>
+    );
 
-/** @test {FormControl#type} */
-  describe('#type', () => {
-    it('placeholder and type', () => {
-      const wrapper = mount(<FormControl placeholder="Digite um nome" />);
-      expect(wrapper.prop('placeholder')).to.equal("Digite um nome");
-      expect(wrapper.prop('type')).to.equal("text");
+    it('Should output a form control', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
     });
 
-    it('type search', () => {
-      const wrapper = mount(<FormControl type="search" />);
-      expect(wrapper.prop('type')).to.equal("search");
-    });
-
-    it('type textarea', () => {
-      const wrapper = mount(<FormControl type="textarea" />);
-      expect(wrapper.prop('type')).to.equal("textarea");
-    });
-
-    it('type select', () => {
-      const wrapper = mount(<FormControl type="select" />);
-      expect(wrapper.prop('type')).to.equal("select");
+    it('Should output a form control with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles['form-addon']));
     });
   });
 });

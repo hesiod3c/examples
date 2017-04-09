@@ -1,44 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { expect } from 'chai';
-jest.dontMock('./index');
-
+import '../../../../internals/test/helper';
 import Panel from './index';
-import styles from './panel.scss';
 
-/** @test {panel} */
+import data from '../../interface';
+const styles = data.styles.panel;
+
+/** @test {Panel} */
 describe('Panel component', function() {
-
   /** @test {Panel#render} */
   describe('#render', () => {
-    const textExample = '<p> Maecenas ipsum velit, consectetuer eu. Morbi imperdiet, mauris ac auctor dictum, sem purus in lacus.</p>';
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Panel>Test</Panel>
+    );
 
-    it('render correctly', () => {
-      const wrapper = shallow(
-        <Panel header="test">
-          {textExample}
-        </Panel>
-      );
-      expect(wrapper.find('p')).to.exists;
+    it('Should output a panel', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'section'));
     });
 
-    it('render header footer', () => {
-      const wrapper = shallow(
-        <Panel header="test" footer="test">
-          {textExample}
-        </Panel>
-      );
-      expect(wrapper.find('header')).to.exists;
-      expect(wrapper.find('footer')).to.exists;
-    });
-
-    it('render scroll', () => {
-      const wrapper = shallow(
-        <Panel header="test" scroll>
-          {textExample}
-        </Panel>
-      );
-    expect(wrapper.find(`.${styles.scroll}`)).to.exists;
+    it('Should output a panel with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles.panel));
     });
   });
 });

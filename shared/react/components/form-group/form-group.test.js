@@ -1,17 +1,23 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
-jest.dontMock('./index');
-
+import '../../../../internals/test/helper';
 import FormGroup from './index';
+
+import data from '../../interface';
+const styles = data.styles.formGroup;
 
 /** @test {FormGroup} */
 describe('FormGroup component', function() {
-/** @test {Button#render} */
+  /** @test {FormGroup#render} */
   describe('#render', () => {
-    it('renders correctly', () => {
-      const wrapper = shallow(<FormGroup />);
-      expect(wrapper.length).toEqual(1);
+    let instance = ReactTestUtils.renderIntoDocument(
+      <FormGroup></FormGroup>
+    );
+
+    it('Should output a form group', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'div'));
+    });
+
+    it('Should output a form group with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles['form-group']));
     });
   });
 });

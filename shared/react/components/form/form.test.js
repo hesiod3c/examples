@@ -1,30 +1,43 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
-import styles from './form.scss';
-
-jest.dontMock('./index');
-
+import '../../../../internals/test/helper';
 import Form from './index';
+
+import data from '../../interface';
+const styles = data.styles.form;
 
 /** @test {Form} */
 describe('Form component', function() {
-/** @test {Form#render} */
+  /** @test {Form#render} */
   describe('#render', () => {
-    it('renders correctly', () => {
-      expect(shallow(<Form onSubmit={()=>{}} />).length).toEqual(1);
+    const noop = () => {};
+    let instance = ReactTestUtils.renderIntoDocument(
+      <Form onSubmit={noop} ></Form>
+    );
+
+    it('Should output a form', () => {
+      assert.isOk(ReactTestUtils.findRenderedDOMComponentWithTag(instance, 'form'));
+    });
+
+    it('Should output a form with default style', () => {
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles.form));
     });
   });
 
-/** @test {Form#style} */
+  /** @test {Form#style} */
   describe('#style', () => {
-    it('inline', () => {
-      const wrapper = shallow(<Form onSubmit={()=>{}} style='inline' />);
-      expect(wrapper.hasClass(styles.inline)).toEqual(true);
+    const noop = () => {};
+
+    it('Should output a form with horizontal style', () => {
+      let instance = ReactTestUtils.renderIntoDocument(
+        <Form onSubmit={noop} style="horizontal"></Form>
+      );
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles.horizontal));
     });
-    it('horizontal', () => {
-      const wrapper = shallow(<Form onSubmit={()=>{}} style='horizontal' />);
-      expect(wrapper.hasClass(styles.horizontal)).toEqual(true);
+
+    it('Should output a form with inline style', () => {
+      let instance = ReactTestUtils.renderIntoDocument(
+        <Form onSubmit={noop} style="inline"></Form>
+      );
+      assert.isOk(ReactDOM.findDOMNode(instance).className.match(styles.inline));
     });
   });
 });

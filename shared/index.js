@@ -19,7 +19,7 @@ export Modal from './react/components/modal';
 export Pagination from './react/components/pagination';
 export Panel from './react/components/panel';
 export Sugestions from './react/components/suggestions';
-export SvgIcon from './react/components/svg-icon';
+export Svg from './react/components/svg';
 export { Table, TableHeaderColumn } from './react/components/table';
 export Tag from './react/components/tag';
 export TagsInput from './react/components/tags-input';

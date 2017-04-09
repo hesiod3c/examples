@@ -1,4 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 // components
@@ -33,8 +34,13 @@ class Modal extends PureComponent {
   };
 
   render() {
-
     const { effect, onDismiss, data, key } = this.props;
+
+    if(!data) {
+      return null
+    }
+
+    const maxWidth =  data ? `${data.maxWidth}px` : 'auto';
 
     return (
       <div
@@ -45,7 +51,7 @@ class Modal extends PureComponent {
         <div
           ref="content"
           className={classNames(styles.content, styles[effect])}
-          style={ {maxWidth: `${data.maxWidth}px`} }
+          style={ {maxWidth: maxWidth}}
         >
           <div>
             { data.header &&
