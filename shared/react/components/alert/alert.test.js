@@ -1,6 +1,6 @@
 import '../../../../internals/test/helper';
 import Alert from './index';
-import Svg from '../svg';
+import Icon from '../icon';
 
 import data from '../../interface';
 const styles = data.styles.alert;
@@ -53,7 +53,7 @@ describe('Alert component', function() {
     );
 
     it('Should output a alert with icon', () => {
-      let icon = ReactTestUtils.scryRenderedComponentsWithType(instance, Svg);
+      let icon = ReactTestUtils.scryRenderedComponentsWithType(instance, Icon);
       assert.equal(icon.length, 1);
     });
 
@@ -62,8 +62,8 @@ describe('Alert component', function() {
     });
 
     it('Should output a alert with icon and default style', () => {
-      let icon = ReactTestUtils.findRenderedComponentWithType(instance, Svg);
-      assert.equal(icon.props.name, 'icon/info-circle');
+      let icon = ReactTestUtils.findRenderedComponentWithType(instance, Icon);
+      assert.equal(icon.props.name, 'info-circle');
     });
   });
 

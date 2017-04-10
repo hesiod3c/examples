@@ -14,41 +14,49 @@ class Svg extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.svgPathLoader = this.svgPathLoader.bind(this);
+    this.pathLoader = this.pathLoader.bind(this);
   }
 
   /**
    * defaultProps
-   * @property {size}
-   * @property {name}
-   * @property {color}
+   * @property {String} src
    */
   static defaultProps = {
-    size: 16,
-    name: 'icon/user',
-    color: "#000000"
+    src: 'logo/shop',
+    width: 'auto',
+    height: 'auto'
   };
   /**
    * propTypes
-   * @property {String} name
-   * @property {String} size
-   * @property {String/Number} size
+   * @property {String} src
+   * @property {String/Number} width
+   * @property {String/Number} height
    * @property {Object} style
    */
   static propTypes = {
-    name: PropTypes.string,
-    color: PropTypes.string,
-    size: PropTypes.oneOfType([
+    src: PropTypes.string,
+    width: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
+    height: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
     ]),
     style: PropTypes.object
   };
 
-  svgPathLoader(name) {
+  pathLoader(src) {
     try {
-      return require(`!!babel-loader!svg-react-loader!../../../images/svg/${name}.svg`);
+      return require(`!!babel-loader!svg-react-loader!../../../images/svg/${src}.svg`);
     } catch (e) {
+      if(src){
+        try {
+          return require(`!!babel-loader!svg-react-loader!${src}.svg`);
+        } catch (e) {
+          return false;
+        }
+      }
       return false;
     }
   }
@@ -59,14 +67,13 @@ class Svg extends PureComponent {
    */
   render() {
     let styles = {
-      fill: this.props.color,
       verticalAlign: "middle",
-      width: this.props.size, // CSS instead of the width attr to support non-pixel units
-      height: this.props.size // Prevents scaling issue in IE
+      width: this.props.width, // CSS instead of the width attr to support non-pixel units
+      height: this.props.height // Prevents scaling issue in IE
     };
 
-    const { name, ...elementProps} = this.props;
-    const Component = this.svgPathLoader(name);
+    const { src, ...elementProps} = this.props;
+    const Component = this.pathLoader(src);
 
     if (!Component) {
       return null;

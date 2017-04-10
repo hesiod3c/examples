@@ -9,7 +9,7 @@ import FormControl from '../form-control';
 import Tag from '../tag';
 import List from '../list';
 import Button from '../button';
-import Svg from '../svg';
+import Icon from '../icon';
 // style
 import data from '../../interface';
 const styles = data.styles.choiceBox;
@@ -74,7 +74,7 @@ class ChoiceBox extends PureComponent {
           <FormControl className={styles['choiceBox-formControl']} placeholder={placeholder} onChange={onInputChange} name={name} />
           { allowCreate &&
             <Button className={styles['choiceBox-itemWithButton-button']} style="primary" onClick={onClick}>
-              <Svg name="icon/plus" size="20px"/>
+              <Icon name="plus" size="20px"/>
             </Button>
           }
         </FormGroup>
@@ -88,7 +88,7 @@ class ChoiceBox extends PureComponent {
                   <FormLabel>{item.name}</FormLabel>
                   { allowDelete &&
                     <Button style="transparent" className={styles['choiceBox-formGroup-button']} onClick={onDelete.bind(this, name, item.id)}>
-                      <Svg name="icon/trash" color="#999999" />
+                      <Icon name="trash" color="#999999" />
                     </Button>
                   }
                 </FormGroup>
