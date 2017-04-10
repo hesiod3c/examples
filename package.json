@@ -1,6 +1,6 @@
 {
   "name": "spacey-blacksmith",
-  "version": "v0.4.2",
+  "version": "v0.4.3",
   "description": "Spacey Blacksmith",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel-node helpers/build/build-cli.js && webpack --progress --config ./internals/webpack/webpack.config.js",
