@@ -22,7 +22,7 @@ class Svg extends PureComponent {
    * @property {String} src
    */
   static defaultProps = {
-    src: 'logo/shop',
+    src: 'logo/acom',
     width: 'auto',
     height: 'auto'
   };
@@ -52,7 +52,7 @@ class Svg extends PureComponent {
     } catch (e) {
       if(src){
         try {
-          return require(`!!babel-loader!svg-react-loader!${src}.svg`);
+          return require(`!!babel-loader!svg-react-loader!../../../../../../${src}.svg`);
         } catch (e) {
           return false;
         }
