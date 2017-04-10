@@ -13,6 +13,7 @@ export Grid from './react/components/grid';
 export GridCol from './react/components/grid-col';
 export GridRow from './react/components/grid-row';
 export HelpText from './react/components/help-text';
+export Icon from './react/components/icon';
 export Image from './react/components/image';
 export List from './react/components/list';
 export Modal from './react/components/modal';
