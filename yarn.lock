@@ -462,7 +462,7 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-autoprefixer@6.5.3, autoprefixer@^6.3.7:
+autoprefixer@6.5.3, autoprefixer@^6.3.7, autoprefixer@^6.5.0:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.5.3.tgz#2d853af66d04449fcf50db3066279ab54c3e4b01"
   dependencies:
@@ -473,7 +473,7 @@ autoprefixer@6.5.3, autoprefixer@^6.3.7:
     postcss "^5.2.5"
     postcss-value-parser "^3.2.3"
 
-autoprefixer@^6.3.1, autoprefixer@^6.5.0, autoprefixer@^6.7.7:
+autoprefixer@^6.3.1, autoprefixer@^6.7.7:
   version "6.7.7"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.7.7.tgz#1dbd1c835658e35ce3f9984099db00585c782014"
   dependencies:
@@ -718,7 +718,7 @@ babel-load-config@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/babel-load-config/-/babel-load-config-0.1.0.tgz#27280b4a90830c47a1fbbc7baaac4c002cd8c8bd"
 
-babel-loader@6.2.7, babel-loader@^6.2.4:
+babel-loader@6.2.7, babel-loader@^6.2.4, babel-loader@^6.2.5:
   version "6.2.7"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.2.7.tgz#16fdbf64328030dc5a606827d389c8b92a2a8032"
   dependencies:
@@ -727,7 +727,7 @@ babel-loader@6.2.7, babel-loader@^6.2.4:
     mkdirp "^0.5.1"
     object-assign "^4.0.1"
 
-babel-loader@^6.2.5, babel-loader@^6.4.1:
+babel-loader@^6.4.1:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
   dependencies:
@@ -6658,15 +6658,9 @@ prop-types@15.5.0-alpha.0:
   dependencies:
     fbjs "^0.8.9"
 
-prop-types@15.5.4:
+prop-types@15.5.4, prop-types@^15.5.4, prop-types@~15.5.0:
   version "15.5.4"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.4.tgz#2ed3692716a5060f8cc020946d8238e7419d92c0"
-  dependencies:
-    fbjs "^0.8.9"
-
-prop-types@^15.5.4, prop-types@~15.5.0:
-  version "15.5.6"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.6.tgz#797a915b1714b645ebb7c5d6cc690346205bd2aa"
   dependencies:
     fbjs "^0.8.9"
 
