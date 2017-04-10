@@ -21,12 +21,10 @@ class Icon extends PureComponent {
    * defaultProps
    * @property {size}
    * @property {name}
-   * @property {color}
    */
   static defaultProps = {
     size: 16,
-    name: 'user',
-    color: "#000000"
+    name: 'user'
   };
   /**
    * propTypes
