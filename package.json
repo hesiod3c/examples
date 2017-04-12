@@ -128,5 +128,8 @@
       "node_modules",
       "shared"
     ]
+  },
+  "publishConfig" : {
+    "registry" : "http://npm-private.atlas.b2w"
   }
 }
