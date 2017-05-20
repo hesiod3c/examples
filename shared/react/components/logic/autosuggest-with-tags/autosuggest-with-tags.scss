@@ -1,0 +1,60 @@
+
+$actived-background: #e0f3ef;
+$svg-actived-color: #15947a;
+$error-color: #ed5565;
+
+/* ==========================================================================
+   Auto Suggest With Tags Component
+   ========================================================================== */
+.autoSuggestWithTags-formControl {
+  margin-bottom: 10px;
+}
+
+.autoSuggestWithTags-formGroup {
+  position: relative;
+}
+
+.autoSuggestWithTags-formGroup-button {
+  float: right;
+}
+
+.autoSuggestWithTags-itemWithButton {
+  position: relative;
+
+  .autoSuggestWithTags-formControl {
+    padding-right: 52px;
+  }
+}
+
+.autoSuggestWithTags-itemWithButton-button {
+  border-radius: 0;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 52px;
+}
+
+.autoSuggestWithTags-tag {
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.actived {
+  background: $actived-background;
+
+  [class*="button"] {
+    background: $actived-background;
+    border-color: $actived-background;
+  }
+
+  path {
+    background: $svg-actived-color;
+  }
+}
+
+.errorMessage {
+  color: $error-color;
+  font-size: 12px;
+  font-weight: normal;
+}

@@ -1,0 +1,55 @@
+@import '../../../../scss/config';
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/* Color
+========================================================================== */
+
+/* ==========================================================================
+   Transfer Component
+   ========================================================================== */
+.transfer {
+  @include x-clearfix;
+}
+
+.transfer-box {
+  float: left;
+  width: 40%;
+}
+
+.transfer-title {
+  background: #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.transfer-list {
+  height: 140px;
+  overflow: auto;
+}
+
+.transfer-item {
+  cursor: pointer;
+}
+
+.transfer-operator {
+  float: left;
+  padding: 0 10px;
+  padding-top: 60px;
+  text-align: center;
+  width: 20%;
+}
+
+.transfer-operator-button {
+  cursor: pointer;
+  margin-bottom: 10px;
+  max-width: 60px;
+}
+
+.on {
+  background: #e5efe5;
+}

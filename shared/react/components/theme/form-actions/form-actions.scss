@@ -1,0 +1,6 @@
+.form-group-actions {
+  text-align: right;
+
+  [class*="button"] { margin-left: 10px; }
+  [class*="block"] { margin-left: 0; }
+}

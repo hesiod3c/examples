@@ -1,0 +1,14 @@
+$background: #fff;
+$border-color: #e7eaec;
+
+.footer {
+  background: $background;
+  border-top: 1px solid $border-color;
+  bottom: 0;
+  font-size: 14px;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+}
+
+.footer-highlight { font-weight: 700; }
