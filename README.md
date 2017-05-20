@@ -2,7 +2,7 @@
  <img src="./internals/images/logotype.png" width="200" style="border:0">
 </p>
 
-# Blacksmith
+# Hammer
 
 * (in development)
 
@@ -44,20 +44,14 @@
 
 
 ## In the your project
-
 ```bash
-// .npmrc
-registry=http://npm.atlas.b2w
-```
-
-```bash
-npm install spacey-blacksmith
+npm install --save-dev hammer
 ```
 
 ```bash
 // package.json
 "devDependencies": {
-  "spacey-blacksmith": "vX.X.X"
+  "hammer": "vX.X.X"
 }
 ```
 
@@ -65,10 +59,10 @@ npm install spacey-blacksmith
 // import the CSS
 
 // ex: layout.js
-import '[node_modules path]/spacey-blacksmith/dist/blacksmith.min.css';
+import '[node_modules path]/hammer/dist/blacksmith.min.css';
 
 // component.js
-import { Alert } from 'spacey-blacksmith';
+import { Alert } from 'hammer';
 
 // webpack
 {
@@ -80,7 +74,7 @@ import { Alert } from 'spacey-blacksmith';
 {
   test: /\.css/,
   loader: 'style!css',
-  include: path.resolve(__dirname, "../../node_modules/spacey-blacksmith/dist/")
+  include: path.resolve(__dirname, "../../node_modules/hammer/dist/")
 }
 ```
 
