@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import * as placeholders from './placeholders';
-// style
-import styles from './placeholder.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.placeholder;
 
 class Placeholder extends PureComponent {
 

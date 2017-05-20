@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
-// style
-import styles from './form-actions.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.formActions;
 
 /**
  * Form Actions component

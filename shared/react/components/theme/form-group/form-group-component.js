@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 import { randomId } from '../../../utils/property';
-// style
-import styles from './form-group.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.formGroup;
 
 /**
  * Form Group component

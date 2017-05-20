@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import paginator from "paginator";
 import classNames from "classnames";
 import CSSModules from 'react-css-modules';
-// style
-import styles from './pagination.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.pagination;
 
 /**
  * Pagination component

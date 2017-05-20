@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import classNames from 'classnames';
-// style
-import styles from './grid-col.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.gridCol;
 
 /**
  * GridCol component

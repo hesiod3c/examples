@@ -1,7 +1,8 @@
 import React, { PureComponent, PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-
-import styles from './progress-bar.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.progressBar;
 
 /**
  * ProgressBar component

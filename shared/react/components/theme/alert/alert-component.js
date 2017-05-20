@@ -5,8 +5,9 @@ import classNames from 'classnames';
 // components
 import Button from '../button';
 import Icon from '../icon';
-// style
-import styles from './alert.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.alert;
 
 /**
  * Alert component

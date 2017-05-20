@@ -6,8 +6,9 @@ import CSSModules from 'react-css-modules';
 import FormControl from '../form-control';
 import Icon from '../icon';
 import Calendar from './calendar/index';
-// style
-import styles from './datetime-picker.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.datetimePicker;
 
 const nof = () => {};
 

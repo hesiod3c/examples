@@ -10,10 +10,14 @@ $warning: #f8ac59;
 $warning-light: #fcf8e3;
 $error: #ed5565;
 $error-light: #f2dede;
+$font-color-light: #fff;
 
 /* Form Group
    ========================================================================== */
-.form-group { margin-bottom: 10px; }
+.form-group {
+  margin-bottom: 10px;
+  position: relative;
+}
 
 .form-group--checkbox,
 .form-group--radio {
@@ -106,5 +110,15 @@ $error-light: #f2dede;
   [class*="form-control"],
   [class*="Select-control"] {
     border-color: $error;
+  }
+
+  [class="error"] {
+    background: $error;
+    color: $font-color-light;
+    padding: 2px 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
   }
 }

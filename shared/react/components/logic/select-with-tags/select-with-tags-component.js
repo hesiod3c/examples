@@ -5,8 +5,9 @@ import CSSModules from 'react-css-modules';
 import FormGroup from '../../theme/form-group';
 import FormControl from '../../theme/form-control';
 import Tag from '../../theme/tag';
-// style
-import styles from './select-with-tags.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.selectWithTags;
 
 /**
  * SelectWithTags Component

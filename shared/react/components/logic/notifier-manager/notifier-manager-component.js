@@ -5,8 +5,9 @@ import CSSModules from 'react-css-modules';
 import ReactCSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 
 import Alert from '../../theme/alert';
-
-import styles from './notifier-manager.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.notifierManager;
 
 /**
  * Notifier component

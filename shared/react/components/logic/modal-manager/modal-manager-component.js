@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 import Modal from '../../theme/modal';
-import styles from './modal-manager.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.modalManager;
 
 /**
  * ModalManager Component

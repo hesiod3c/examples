@@ -10,7 +10,8 @@ import Button from '../../theme/button';
 import Icon from '../../theme/icon';
 import Suggestions from '../../theme/suggestions';
 // style
-import styles from './autosuggest-with-tags.scss';
+import data from '../../../interface';
+const styles = data.styles.autosuggestWithTags;
 
 /**
  * AutosuggestWithTags Component

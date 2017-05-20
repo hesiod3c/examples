@@ -4,8 +4,9 @@ import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
 // components
 import Icon from '../icon';
-// style
-import styles from './form-control.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.formControl;
 
 /**
  * Form Control component

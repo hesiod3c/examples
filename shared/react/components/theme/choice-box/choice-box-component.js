@@ -10,8 +10,9 @@ import Tag from '../tag';
 import List from '../list';
 import Button from '../button';
 import Icon from '../icon';
-// style
-import styles from './choice-box.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.choiceBox;
 
 /**
  * ChoiceBox Component

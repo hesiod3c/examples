@@ -2,8 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CSSModules from 'react-css-modules';
-// style
-import styles from './help-text.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.helpText;
 
 /**
  * HelpText

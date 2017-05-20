@@ -6,8 +6,9 @@ import classNames from 'classnames';
 import List from '../../theme/list';
 import Icon from '../../theme/icon';
 import Button from '../../theme/button';
-
-import styles from './transfer.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.transfer;
 
 /**
  * Transfer Component

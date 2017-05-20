@@ -4,8 +4,9 @@ import ReactTagsInput from 'react-tagsinput';
 import CSSModules from 'react-css-modules';
 // components
 import Tag from '../tag';
-// style
-import styles from './tags-input.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.tagInput;
 
 /**
  * TagsInput Component

@@ -4,6 +4,10 @@ import Button from '../../theme/button';
 import Icon from  '../../theme/icon';
 import ModalManager from '../modal-manager';
 
+//styles
+import data from '../../../interface';
+const styles = data.styles.logout;
+
 /**
  * Logout Component
  * @extends {PureComponent }

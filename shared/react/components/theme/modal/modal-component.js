@@ -5,8 +5,9 @@ import CSSModules from 'react-css-modules';
 // components
 import Button from '../button';
 import Icon from '../icon';
-// style
-import styles from './modal.scss';
+//styles
+import data from '../../../interface';
+const styles = data.styles.modal;
 
 /**
  * Modal Component
