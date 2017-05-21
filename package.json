@@ -19,14 +19,10 @@
   },
   "main": "lib/index.js",
   "keywords": [
-    "spacey",
-    "blacksmith",
+    "hammer",
     "theme"
   ],
-  "author": "Spacey <spacey@b2wdigital.com>",
-  "contributors": [
-    "Hemerson Vianna <hemerson.lourenco@b2wdigital.com> (https://github.com/hemersonvianna)"
-  ],
+  "author": "Hemerson Vianna <hemerson.lourenco@b2wdigital.com> (https://github.com/hemersonvianna)",
   "peerDependencies": {
     "prop-types": "15.5.4",
     "react": ">=15.5.0",
@@ -35,16 +31,23 @@
   "dependencies": {
     "babel-loader": "6.2.7",
     "classnames": "2.2.5",
+    "immutable": "^3.8.1",
     "moment": "2.18.1",
     "node-sass": "4.0.0",
     "paginator": "1.0.0",
     "prop-types": "15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
     "react-bootstrap-table": "3.1.6",
     "react-css-modules": "4.0.3",
     "react-onclickoutside": "5.9.0",
+    "react-redux": "^5.0.4",
     "react-select": "1.0.0-rc.2",
     "react-tagsinput": "3.15.1",
-    "react-transition-group": "1.1.1",
+    "react-transition-group": "^1.1.3",
+    "redux": "^3.6.0",
+    "redux-immutable": "^4.0.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0",
     "svg-react-loader": "^0.3.7"
   },
   "devDependencies": {
@@ -128,8 +131,5 @@
       "node_modules",
       "shared"
     ]
-  },
-  "publishConfig": {
-    "registry": "http://npm-private.atlas.b2w"
   }
 }

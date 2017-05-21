@@ -68,14 +68,19 @@ const baseConfig = {
       },
       {
         test: /(table.scss|autocomplete.scss|tags-input.scss|datetime-picker.scss)/,
+        exclude: /(node_modules)/,
         loader: 'style!css!postcss!sass?sourceMap'
       },
       {
         test: /\.svg$/,
-        loader: 'svg-react-loader'
+        loader: 'svg-react-loader?jsx=1',
+        exclude: /(node_modules)/,
+        include: path.resolve(__dirname, '../../shared/')
       },
       {
         test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf|svg)$/,
+        include: path.resolve(__dirname, '../../shared/'),
+        exclude: /(node_modules)/,
         loader: "file-loader"
       }
     ]

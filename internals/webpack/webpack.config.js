@@ -73,10 +73,14 @@ const baseConfig = {
       },
       {
         test: /\.svg$/,
+        include: path.resolve(__dirname, '../../shared/'),
+        exclude: /(node_modules)/,
         loader: 'svg-react-loader'
       },
       {
         test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf|svg)$/,
+        include: path.resolve(__dirname, '../../shared/'),
+        exclude: /(node_modules)/,
         loader: "file-loader"
       }
     ]

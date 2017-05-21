@@ -22,7 +22,7 @@ class Svg extends PureComponent {
    * @property {String} src
    */
   static defaultProps = {
-    src: 'logo/acom',
+    src: 'logo/example',
   };
   /**
    * propTypes
