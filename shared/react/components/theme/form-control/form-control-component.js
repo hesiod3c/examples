@@ -85,7 +85,7 @@ class FormControl extends PureComponent {
    * Generate Feedback
    */
   _generateFeedback(validationState, feedback, addonAfter) {
-    if ((!validationState && !feedback) || !addonAfter) {
+    if ((!validationState && !feedback && addonAfter) || !feedback || !validationState) {
       return null;
     }
 
