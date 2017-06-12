@@ -1,4 +1,4 @@
-# Hybrid UI
+# Descco UI
 
 * (in development)
 
@@ -41,13 +41,13 @@
 
 ## In the your project
 ```bash
-npm install --save-dev @hybrid/ui
+npm install --save-dev @descco/ui
 ```
 
 ```bash
 // package.json
 "devDependencies": {
-  "@hybrid/ui": "vX.X.X"
+  "@descco/ui": "vX.X.X"
 }
 ```
 
@@ -55,10 +55,10 @@ npm install --save-dev @hybrid/ui
 // import the CSS
 
 // ex: layout.js
-import '[node_modules path]/@hybrid/ui/dist/hybrid-ui.min.css';
+import '[node_modules path]/@descco/ui/dist/ui.min.css';
 
 // component.js
-import { Alert } from '@hybrid/ui';
+import { Alert } from '@descco/ui';
 
 // webpack
 {
@@ -70,7 +70,7 @@ import { Alert } from '@hybrid/ui';
 {
   test: /\.css/,
   loader: 'style!css',
-  include: path.resolve(__dirname, "../../node_modules/@hybrid/ui/dist/")
+  include: path.resolve(__dirname, "../../node_modules/@descco/ui/dist/")
 }
 ```
 
