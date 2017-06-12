@@ -19,15 +19,12 @@ class FormControl extends PureComponent {
    * @param {Object} props
    */
   constructor(props, context){
-    super(props, context)
+    super(props, context);
 
-    this._hasType = this._hasType.bind(this);
-    this._getFeedback = this._getFeedback.bind(this);
-    this._getComponent = this._getComponent.bind(this);
-    this._setClass = this._setClass.bind(this);
-    this._generateAddon = this._generateAddon.bind(this);
-    this._generateComponent = this._generateComponent.bind(this);
-    this._generateFeedback = this._generateFeedback.bind(this);
+    this.type = this.props.type;
+    this.hasTypeProperty = this.type !== 'select' && this.type !== 'textarea';
+
+    this.componentRender = this.componentRender.bind(this);
   }
 
   /**
@@ -70,7 +67,28 @@ class FormControl extends PureComponent {
     addonAfter: PropTypes.node,
     addonBefore: PropTypes.node,
     feedback: PropTypes.bool,
-    type: PropTypes.oneOf(['text', 'password', 'select', 'textarea', 'radio', 'checkbox', 'file', 'hidden', 'search', 'email', 'range', 'number', 'month', 'tel', 'time', 'url', 'week', 'date', 'datetime', 'color'])
+    type: PropTypes.oneOf([
+      'text',
+      'password',
+      'select',
+      'textarea',
+      'radio',
+      'checkbox',
+      'file',
+      'hidden',
+      'search',
+      'email',
+      'range',
+      'number',
+      'month',
+      'tel',
+      'time',
+      'url',
+      'week',
+      'date',
+      'datetime',
+      'color'
+    ])
   };
 
   /**
@@ -82,22 +100,9 @@ class FormControl extends PureComponent {
   };
 
   /**
-   * Generate Feedback
-   */
-  _generateFeedback(validationState, feedback, addonAfter) {
-    if ((!validationState && !feedback && addonAfter) || !feedback || !validationState) {
-      return null;
-    }
-
-    return (
-      <span className={styles['form-feedback']}>{this._getFeedback(validationState)}</span>
-    );
-  }
-
-  /**
    * Generate Addon
    */
-  _generateAddon(type, children) {
+  static addonRender(type, children) {
     if (!type || !children) {
       return null;
     }
@@ -108,29 +113,60 @@ class FormControl extends PureComponent {
   }
 
   /**
+   * Generate Feedback
+   */
+  static feedbackRender(validationState, feedback, addonAfter) {
+    if ((!validationState && !feedback && addonAfter) || !feedback || !validationState) {
+      return null;
+    }
+
+    let iconName;
+
+    switch (validationState) {
+      case 'success':
+        iconName = 'check';
+        break;
+      case 'warning':
+        iconName = 'warning';
+        break;
+      case 'error':
+        iconName = 'close';
+        break;
+    }
+
+    return (
+      <span className={styles['form-feedback']}>
+        <Icon name={iconName} />
+      </span>
+    );
+  }
+
+  /**
    * Generate component
    */
-  _generateComponent(controlId, type) {
-    const finalClass = this._setClass(type);
-    const Component = this._getComponent(type);
-    const {
-      /* eslint-disable */
-      addonBefore, addonAfter, feedback,
-      /* eslint-enable */
-      getRef, onChange, onFocus, onBlur, disabled, children, name, value, ...elementProps } = this.props;
-
-    // type of component
-    if (this._hasType(type)) {
-      elementProps.type = type;
-    } else {
-      delete elementProps.type;
+  componentRender(controlId, type) {
+    const Component =  this.hasTypeProperty ? 'input' : type ;
+    const { getRef, onChange, onFocus, onBlur, disabled, children, name, value, ...rest } = this.props;
+    const isClassDefault = ['radio', 'checkbox', 'textarea', 'select'].indexOf(type) < 0;
+    const componentClass = classNames({
+      [styles['form-field']] : isClassDefault,
+      [styles['form-field--radio']]: type === 'radio',
+      [styles['form-field--checkbox']]: type === 'checkbox',
+      [styles['form-field--textarea']]: type === 'textarea',
+      [styles['form-field--select']]: type === 'select'
+    });
+    let tagType;
+    // Has type property
+    if (this.hasTypeProperty) {
+      tagType = type;
     }
 
     return (
       <Component
-        {...elementProps}
+        {...rest}
+        type={tagType}
         ref={getRef}
-        className={finalClass}
+        className={componentClass}
         id={controlId}
         onChange={onChange}
         onFocus={onFocus}
@@ -145,118 +181,26 @@ class FormControl extends PureComponent {
   }
 
   /**
-   * Generate component
-   */
-  _getComponent(type) {
-    let Component = '';
-
-    switch(type) {
-      case 'textarea':
-        Component = 'textarea';
-        break;
-      case 'select':
-        Component = 'select';
-        break;
-      default :
-        Component = 'input';
-        break;
-    }
-
-    return Component;
-  }
-
-  /**
-   * Has type
-   */
-  _hasType(type){
-    return type !== 'select' && type !== 'textarea';
-  }
-
-  /**
-   * Get feedback
-   */
-  _getFeedback(state){
-    let result;
-
-    switch (state) {
-      case 'success':
-        result = <Icon name="check" />;
-        break;
-      case 'warning':
-        result = <Icon name="warning" />;
-        break;
-      case 'error':
-        result = <Icon name="close" />;
-        break;
-    }
-
-    return result;
-  }
-
-  /**
-   * Set class
-   */
-  _setClass(type){
-    let fieldDefault = false;
-    let fieldTextarea = false;
-    let fieldSelect = false;
-    let fieldRadio = false;
-    let fieldCheckbox = false;
-    let fullClassName = '';
-
-    switch (type) {
-      case 'textarea':
-        fieldTextarea = true;
-        break;
-      case 'select':
-        fieldSelect = true;
-        break;
-      case 'radio':
-        fieldRadio = true;
-        break;
-      case 'checkbox':
-        fieldCheckbox = true;
-        break;
-      default:
-        fieldDefault = true;
-    }
-
-    fullClassName = classNames({
-      [styles['form-field']] : fieldDefault,
-      [styles['form-field--radio']]: fieldRadio,
-      [styles['form-field--checkbox']]: fieldCheckbox,
-      [styles['form-field--textarea']]: fieldTextarea,
-      [styles['form-field--select']]: fieldSelect
-    });
-
-    return fullClassName;
-  }
-
-  /**
    * render
    * @return {ReactElement} markup
    */
   render(){
     const { type, addonBefore, addonAfter, feedback, className } = this.props;
-
     // context
     const formGroup = this.context.$formGroup;
     const controlId = formGroup && formGroup.controlId || undefined;
     const validationState = formGroup && formGroup.validationState;
-
+    // classes
     const addonClass = classNames(
-      className,
-      styles['form-addon'],
-    {
-      [styles['form-addon--withItens']] : (addonBefore || addonAfter || feedback)
-    });
-
-    // intern components
-    const generateAddonBefore = this._generateAddon('before', addonBefore);
-    const generateAddonAfter = this._generateAddon('after', addonAfter);
-    const generateFeedback = this._generateFeedback(validationState, feedback, addonAfter);
-
-    const generateComponent = this._generateComponent(controlId, type);
+      className, styles['form-addon'],
+      { [styles['form-addon--withItens']] : (addonBefore || addonAfter || feedback) }
+    );
+    // internal components
+    const generateAddonBefore = FormControl.addonRender('before', addonBefore);
+    const generateAddonAfter = FormControl.addonRender('after', addonAfter);
+    const generateFeedback = FormControl.feedbackRender(validationState, feedback, addonAfter);
+    // component
+    const generateComponent = this.componentRender(controlId, type);
 
     return (
       <div className={addonClass}>
