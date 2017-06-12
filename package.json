@@ -1,7 +1,7 @@
 {
-  "name": "@hybrid/ui",
+  "name": "@hdescco/ui",
   "version": "v0.4.4",
-  "description": "Hybrid UI",
+  "description": "Descco UI",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel-node helpers/build/build-cli.js && webpack --progress --config ./internals/webpack/webpack.config.js",
     "build:storybook": "cross-env NODE_ENV=development build-storybook -c ./internals/storybook -o .out",
