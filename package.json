@@ -11,7 +11,7 @@
     "precommit": "yarn lint",
     "prepublish": "yarn build",
     "prepush": "jest --setupTestFrameworkScriptFile=internals/test/setup.js",
-    "storybook": "webpack-dashboard -- start-storybook -p 9000 -c ./internals/storybook",
+    "storybook": "start-storybook -p 9000 -c ./internals/storybook",
     "test": "jest --setupTestFrameworkScriptFile=internals/test/setup.js",
     "test:storybook": "storyshots -c ./internals/storybook",
     "play": "vbuild -c play.config.js -d",

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 // style
-import styles from '../placeholder.scss';
+import styles from '../../../../../scss/06-components/placeholder.scss';
 
 class RoundShape extends PureComponent {
   /**

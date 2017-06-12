@@ -5,7 +5,7 @@ import CSSModules from 'react-css-modules';
 import TextBlock from './text-block';
 import RoundShape from './round-shape';
 // style
-import styles from '../placeholder.scss';
+import styles from '../../../../../scss/06-components/placeholder.scss';
 
 class MediaBlock extends PureComponent {
   /**
