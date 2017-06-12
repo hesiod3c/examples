@@ -1,7 +1,7 @@
 {
-  "name": "spacey-blacksmith",
+  "name": "ui",
   "version": "v0.4.4",
-  "description": "Spacey Blacksmith",
+  "description": "Hybrid UI",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel-node helpers/build/build-cli.js && webpack --progress --config ./internals/webpack/webpack.config.js",
     "build:storybook": "cross-env NODE_ENV=development build-storybook -c ./internals/storybook -o .out",
@@ -19,7 +19,7 @@
   },
   "main": "lib/index.js",
   "keywords": [
-    "hammer",
+    "hybrid",
     "theme"
   ],
   "author": "Hemerson Vianna <hemerson.lourenco@b2wdigital.com> (https://github.com/hemersonvianna)",

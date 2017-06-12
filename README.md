@@ -1,8 +1,4 @@
-<p align="center">
- <img src="./internals/images/logotype.png" width="200" style="border:0">
-</p>
-
-# Hammer
+# Hybrid UI
 
 * (in development)
 
@@ -45,13 +41,13 @@
 
 ## In the your project
 ```bash
-npm install --save-dev hammer
+npm install --save-dev @hybrid/ui
 ```
 
 ```bash
 // package.json
 "devDependencies": {
-  "hammer": "vX.X.X"
+  "@hybrid/ui": "vX.X.X"
 }
 ```
 
@@ -59,10 +55,10 @@ npm install --save-dev hammer
 // import the CSS
 
 // ex: layout.js
-import '[node_modules path]/hammer/dist/blacksmith.min.css';
+import '[node_modules path]/@hybrid/ui/dist/hybrid-ui.min.css';
 
 // component.js
-import { Alert } from 'hammer';
+import { Alert } from '@hybrid/ui';
 
 // webpack
 {
@@ -74,7 +70,7 @@ import { Alert } from 'hammer';
 {
   test: /\.css/,
   loader: 'style!css',
-  include: path.resolve(__dirname, "../../node_modules/hammer/dist/")
+  include: path.resolve(__dirname, "../../node_modules/@hybrid/ui/dist/")
 }
 ```
 
