@@ -1,5 +1,5 @@
 {
-  "name": "@hdescco/ui",
+  "name": "@descco/ui",
   "version": "v0.4.4",
   "description": "Descco UI",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "main": "lib/index.js",
   "keywords": [
-    "hybrid",
+    "descco",
     "theme"
   ],
   "author": "Hemerson Vianna <hemerson.lourenco@b2wdigital.com> (https://github.com/hemersonvianna)",
