@@ -146,7 +146,7 @@ class FormControl extends PureComponent {
    */
   componentRender(controlId, type) {
     const Component =  this.hasTypeProperty ? 'input' : type ;
-    const { getRef, onChange, onFocus, onBlur, disabled, children, name, value, ...rest } = this.props;
+    const { getRef, onChange, onFocus, onBlur, disabled, children, name, value, onMask, ...rest } = this.props;
     const isClassDefault = ['radio', 'checkbox', 'textarea', 'select'].indexOf(type) < 0;
     const componentClass = classNames({
       [styles['form-field']] : isClassDefault,
@@ -161,6 +161,13 @@ class FormControl extends PureComponent {
       tagType = type;
     }
 
+    let newValue;
+    if(onMask) {
+      newValue = onMask(value);
+    } else {
+      newValue = value;
+    }
+
     return (
       <Component
         {...rest}
@@ -173,7 +180,7 @@ class FormControl extends PureComponent {
         onBlur={onBlur}
         disabled={disabled}
         name={name}
-        value={value}
+        value={newValue}
       >
         {children}
       </Component>
