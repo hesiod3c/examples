@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const yargs = require('yargs');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const options = yargs
   .alias('p', 'optimize-minimize')
   .alias('d', 'debug')

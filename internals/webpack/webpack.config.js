@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const yargs = require('yargs');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const options = yargs
   .alias('p', 'optimize-minimize')
   .alias('d', 'debug')
@@ -34,25 +33,16 @@ const baseConfig = {
   ],
 
   resolve: {
-    modulesDirectories: [
-      'node_modules'
-    ],
-    extensions: ['', '.js', '.jsx', '.scss']
-  },
-
-  eslint: {
-    configFile: '.eslintrc'
+    extensions: ['.js', '.jsx', '.scss']
   },
 
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
-      }
-    ],
-    loaders: [
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -85,9 +75,6 @@ const baseConfig = {
       }
     ]
   },
-  postcss: function () {
-    return [autoprefixer];
-  },
 
   plugins: [
     new webpack.DefinePlugin({
@@ -95,9 +82,7 @@ const baseConfig = {
         NODE_ENV: JSON.stringify(options.optimizeMinimize ? 'production' : 'development')
       }
     }),
-    new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

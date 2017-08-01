@@ -1,6 +1,4 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-
 const config = {
   module: {
     loaders: [
@@ -46,11 +44,7 @@ const config = {
         loader: "file-loader"
       }
     ]
-  },
-  postcss: function () {
-    return [autoprefixer];
-  },
+  }
 };
-
 
 module.exports = config;

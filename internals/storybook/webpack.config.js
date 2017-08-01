@@ -3,10 +3,6 @@ const webpackConfig = require('../webpack/webpack.dev.config.js');
 
 module.exports = function (config, env) {
   const newConfig = kadiraWebpackConfig(config, env);
-
-  newConfig.module.preLoaders = (newConfig.module.preLoaders || []).concat(webpackConfig.module.preLoaders);
-  newConfig.module.loaders = (newConfig.module.loaders || []).concat(webpackConfig.module.loaders);
-  newConfig.postcss = webpackConfig.postcss;
-
+  newConfig.module.rules = (newConfig.module.rules || []).concat(webpackConfig.module.rules);
   return newConfig;
 };
