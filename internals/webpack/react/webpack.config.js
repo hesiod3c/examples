@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const yargs = require('yargs');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const options = yargs
   .alias('p', 'optimize-minimize')
@@ -32,25 +33,16 @@ const baseConfig = {
   ],
 
   resolve: {
-    modulesDirectories: [
-      'node_modules'
-    ],
-    extensions: ['', '.js', '.jsx', '.scss']
-  },
-
-  eslint: {
-    configFile: '.eslintrc'
+    extensions: ['.js', '.jsx', '.scss']
   },
 
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
-      }
-    ],
-    loaders: [
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -61,31 +53,16 @@ const baseConfig = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css?modules=1&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss!sass?sourceMap',
-        include: path.resolve(__dirname, '../../shared/scss/'),
-        exclude: /(table.scss|autocomplete.scss|tags-input.scss|datetime-picker.scss)/
+        loader: ExtractTextPlugin.extract('style', 'css?modules=1&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss!sass?sourceMap'),
+        include: path.resolve(__dirname, '../../shared/scss/')
       },
       {
-        test: /(table.scss|autocomplete.scss|tags-input.scss|datetime-picker.scss)/,
-        exclude: /(node_modules)/,
-        loader: 'style!css!postcss!sass?sourceMap'
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-react-loader?jsx=1',
-        exclude: /(node_modules)/,
-        include: path.resolve(__dirname, '../../shared/')
-      },
-      {
-        test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf)$/,
         include: path.resolve(__dirname, '../../shared/'),
         exclude: /(node_modules)/,
         loader: "file-loader"
       }
     ]
-  },
-  postcss: function () {
-    return [autoprefixer];
   },
 
   plugins: [
@@ -94,15 +71,16 @@ const baseConfig = {
         NODE_ENV: JSON.stringify(options.optimizeMinimize ? 'production' : 'development')
       }
     }),
-    new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
       comments: false,
       sourceMap: false
+    }),
+    new ExtractTextPlugin(`[name].min.css`, {
+      allowChunks: true
     })
   ]
 };

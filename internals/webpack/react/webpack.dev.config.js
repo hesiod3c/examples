@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const yargs = require('yargs');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const options = yargs
   .alias('p', 'optimize-minimize')
@@ -53,22 +52,11 @@ const baseConfig = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules=1&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss!sass?sourceMap'),
-        include: path.resolve(__dirname, '../../shared/scss/'),
-        exclude: /(table.scss|autocomplete.scss|tags-input.scss|datetime-picker.scss)/
+        loader: 'style!css?modules=1&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss!sass?sourceMap',
+        include: path.resolve(__dirname, '../../shared/scss/')
       },
       {
-        test: /(table.scss|autocomplete.scss|tags-input.scss|datetime-picker.scss)/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?sourceMap')
-      },
-      {
-        test: /\.svg$/,
-        include: path.resolve(__dirname, '../../shared/'),
-        exclude: /(node_modules)/,
-        loader: 'svg-react-loader'
-      },
-      {
-        test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf)$/,
         include: path.resolve(__dirname, '../../shared/'),
         exclude: /(node_modules)/,
         loader: "file-loader"
@@ -89,9 +77,6 @@ const baseConfig = {
       },
       comments: false,
       sourceMap: false
-    }),
-    new ExtractTextPlugin(`[name].min.css`, {
-      allowChunks: true
     })
   ]
 };
