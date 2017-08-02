@@ -2,18 +2,11 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { withKnobs } from '@kadira/storybook-addon-knobs';
 
-import {
-  Table,
-  TableHeaderColumn
-} from './table-component';
+import Table from './table-component';
 
 const stories = storiesOf('Table', module);
 
 stories.addDecorator(withKnobs);
-
-const options = {
-  noDataText: 'Sem resultados'
-};
 
 const list = [
   {
@@ -42,14 +35,11 @@ const list = [
   }
 ];
 
+const columnDisplay = {
+  'name': 'Nome'
+};
+
 stories.addWithInfo('Normal', () => (
-  <Table data={list} options={options} bordered>
-    <TableHeaderColumn dataField="name" dataAlign="center" isKey>Nome</TableHeaderColumn>
-    <TableHeaderColumn dataField="status">Status</TableHeaderColumn>
-    <TableHeaderColumn dataField="position">Posição</TableHeaderColumn>
-    <TableHeaderColumn dataField="startDate">Data Início</TableHeaderColumn>
-    <TableHeaderColumn dataField="endDate">Data Fim</TableHeaderColumn>
-    <TableHeaderColumn dataField="actions">Ações</TableHeaderColumn>
-  </Table>
+  <Table data={list} columnDisplay={columnDisplay} initialSortKey='name' />
 ));
 

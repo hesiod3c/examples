@@ -1,5 +1,5 @@
 import '../../../../../internals/test/helper';
-import { Table, TableHeaderColumn } from './index';
+import Table from './index';
 
 /** @test {Table} */
  describe('Table component', function() {
@@ -13,9 +13,7 @@ import { Table, TableHeaderColumn } from './index';
        { "name": "Brinquedo lllll - Bola Quadrada 01" }
      ];
      let instance = ReactTestUtils.renderIntoDocument(
-       <Table data={list} options={options} bordered>
-         <TableHeaderColumn dataField="name" dataAlign="center" isKey>Nome</TableHeaderColumn>
-       </Table>
+       <Table data={list} options={options} />
      );
 
      it('Should output a table', () => {

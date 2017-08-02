@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import ReactTagsInput from 'react-tagsinput';
+import ReactTagsInput from './source';
 import CSSModules from 'react-css-modules';
 // components
 import Tag from '../tag';

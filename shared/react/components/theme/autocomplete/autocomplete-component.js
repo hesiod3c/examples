@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Creatable } from 'react-select';
+import { Creatable } from './creatable';
 import CSSModules from 'react-css-modules';
 //styles
 import data from '../../../interface';

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import TableSource from './source/table';
 // style
 import '../../../../scss/06-components/table.scss';
 
@@ -8,14 +8,11 @@ class Table extends PureComponent {
     const { ...elementProps } = this.props;
 
     return (
-      <BootstrapTable
+      <TableSource
         {...elementProps}
       />
     );
   }
 }
 
-export {
-  Table,
-  TableHeaderColumn
-};
+export default Table;
