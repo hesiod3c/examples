@@ -38,28 +38,62 @@ const baseConfig = {
   module: {
     rules: [
       {
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        use: {
+          loader: 'eslint-loader'
+        }
       },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'es2015', 'stage-0']
+          }
         }
       },
       {
         test: /\.scss$/,
-        loader: 'style!css?modules=1&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]!postcss!sass?sourceMap',
-        include: path.resolve(__dirname, '../../shared/scss/')
+        include: path.resolve(__dirname, '../../shared/'),
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: path.resolve(__dirname, './config/postcss.config.js')
+              }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.(jpe?g|jpg|gif|ico|png|woff|woff2|eot|ttf)$/,
         include: path.resolve(__dirname, '../../shared/'),
         exclude: /(node_modules)/,
-        loader: "file-loader"
+        use: {
+          loader: 'file-loader'
+        }
       }
     ]
   },
