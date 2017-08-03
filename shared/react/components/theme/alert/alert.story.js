@@ -1,7 +1,7 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import { decorateAction } from '@kadira/storybook-addon-actions'
-import { withKnobs, text, boolean, select } from '@kadira/storybook-addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { decorateAction } from '@storybook/addon-actions';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import Alert from './index';
 

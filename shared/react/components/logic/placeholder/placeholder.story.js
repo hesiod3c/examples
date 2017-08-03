@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import { withKnobs, boolean, number, select } from '@kadira/storybook-addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, boolean, number, select } from '@storybook/addon-knobs';
 
 import Placeholder from './index';
 

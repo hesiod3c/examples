@@ -5,8 +5,8 @@ import thunkMiddleware from 'redux-thunk';
 import Immutable from 'immutable';
 import { combineReducers } from 'redux-immutable';
 import { createLogger } from 'redux-logger';
-import { storiesOf } from '@kadira/storybook';
-import { withKnobs, text } from '@kadira/storybook-addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import { transfer } from '../../../reducers';
 
 import Transfer from './index';
