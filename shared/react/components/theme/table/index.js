@@ -1,9 +1,2 @@
-import {
-  Table,
-  TableHeaderColumn
-} from './table-component';
-
-export {
-  Table,
-  TableHeaderColumn
-};
+import Table from './table-component';
+export default Table;
