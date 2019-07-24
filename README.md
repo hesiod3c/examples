@@ -1,7 +1,12 @@
 # Descco UI
 
 [![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
-[![issues](https://img.shields.io/github/issues/descco-ui/examples.svg?style=flat-square)](https://github.com/descco-ui/examples/issues)
+[![GitHub issues](https://img.shields.io/github/issues/org-hesiod/examples.svg)](https://github.com/org-hesiod/examples/issues)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/org-hesiod/examples.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/org-hesiod/examples.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/org-hesiod/examples.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/org-hesiod/examples.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/org-hesiod/examples/total.svg)
 
 * (in development)
 
@@ -189,7 +194,7 @@ Questions and answers
 
 ## Log
 
-Check [Releases](https://github.com/descco-ui/examples/releases) for detailed changelog.
+Check [Releases](https://github.com/org-hesiod/examples/releases) for detailed changelog.
 
 ## License
 
