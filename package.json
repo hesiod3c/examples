@@ -1,6 +1,6 @@
 {
   "name": "@descco/ui",
-  "version": "v0.4.4",
+  "version": "0.4.5",
   "description": "Descco UI",
   "scripts": {
     "build:react": "cross-env NODE_ENV=production babel-node bin/build/build-cli.js && webpack --progress --config ./internals/webpack/react/webpack.config.js",
