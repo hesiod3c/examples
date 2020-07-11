@@ -1,12 +1,12 @@
 # Descco UI
 
 [![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
-[![GitHub issues](https://img.shields.io/github/issues/org-hesiod/examples.svg)](https://github.com/org-hesiod/examples/issues)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/org-hesiod/examples.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/org-hesiod/examples.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/org-hesiod/examples.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/org-hesiod/examples.svg)
-![GitHub All Releases](https://img.shields.io/github/downloads/org-hesiod/examples/total.svg)
+[![GitHub issues](https://img.shields.io/github/issues/hesiod3c/examples.svg)](https://github.com/hesiod3c/examples/issues)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/hesiod3c/examples.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/hesiod3c/examples.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/hesiod3c/examples.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/hesiod3c/examples.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/hesiod3c/examples/total.svg)
 
 * (in development)
 
@@ -194,7 +194,7 @@ Questions and answers
 
 ## Log
 
-Check [Releases](https://github.com/org-hesiod/examples/releases) for detailed changelog.
+Check [Releases](https://github.com/hesiod3c/examples/releases) for detailed changelog.
 
 ## License
 
